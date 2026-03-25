@@ -1,0 +1,407 @@
+/* ========================================
+   Four Square - Text Reveal Animations
+   Non-Opacity Based Animations
+   ======================================== */
+
+/* Basic Text Reveal - Slide Up */
+.text-reveal {
+  overflow: hidden;
+}
+
+.text-reveal-inner {
+  display: inline-block;
+  transform: translateY(100%);
+  animation: slideUp 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Clip Path Reveal */
+.clip-reveal {
+  clip-path: inset(0 0 100% 0);
+  animation: clipReveal 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes clipReveal {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Stagger Reveal for Characters */
+.char-reveal {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.char-reveal span {
+  display: inline-block;
+  transform: translateY(100%);
+  animation: slideUp 0.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+/* Stagger delay for each character */
+.char-reveal span:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.char-reveal span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.char-reveal span:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.char-reveal span:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.char-reveal span:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.char-reveal span:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.char-reveal span:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.char-reveal span:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.char-reveal span:nth-child(9) {
+  animation-delay: 0.45s;
+}
+.char-reveal span:nth-child(10) {
+  animation-delay: 0.5s;
+}
+.char-reveal span:nth-child(11) {
+  animation-delay: 0.55s;
+}
+.char-reveal span:nth-child(12) {
+  animation-delay: 0.6s;
+}
+.char-reveal span:nth-child(13) {
+  animation-delay: 0.65s;
+}
+.char-reveal span:nth-child(14) {
+  animation-delay: 0.7s;
+}
+.char-reveal span:nth-child(15) {
+  animation-delay: 0.75s;
+}
+.char-reveal span:nth-child(16) {
+  animation-delay: 0.8s;
+}
+.char-reveal span:nth-child(17) {
+  animation-delay: 0.85s;
+}
+.char-reveal span:nth-child(18) {
+  animation-delay: 0.9s;
+}
+.char-reveal span:nth-child(19) {
+  animation-delay: 0.95s;
+}
+.char-reveal span:nth-child(20) {
+  animation-delay: 1s;
+}
+
+/* Word by Word Reveal */
+.word-reveal {
+  overflow: hidden;
+}
+
+.word-reveal .word {
+  display: inline-block;
+  transform: translateY(100%);
+  animation: slideUp 0.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.word-reveal .word:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.word-reveal .word:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.word-reveal .word:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.word-reveal .word:nth-child(4) {
+  animation-delay: 0.25s;
+}
+.word-reveal .word:nth-child(5) {
+  animation-delay: 0.3s;
+}
+.word-reveal .word:nth-child(6) {
+  animation-delay: 0.35s;
+}
+.word-reveal .word:nth-child(7) {
+  animation-delay: 0.4s;
+}
+.word-reveal .word:nth-child(8) {
+  animation-delay: 0.45s;
+}
+.word-reveal .word:nth-child(9) {
+  animation-delay: 0.5s;
+}
+.word-reveal .word:nth-child(10) {
+  animation-delay: 0.55s;
+}
+.word-reveal .word:nth-child(11) {
+  animation-delay: 0.6s;
+}
+.word-reveal .word:nth-child(12) {
+  animation-delay: 0.65s;
+}
+
+/* Slide In Animations */
+.slide-in-left {
+  transform: translateX(-100%);
+  animation: slideInLeft 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  transform: translateX(100%);
+  animation: slideInRight 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes slideInRight {
+  to {
+    transform: translateX(0);
+  }
+}
+
+.slide-in-bottom {
+  transform: translateY(60px);
+  animation: slideInBottom 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes slideInBottom {
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Scale In Animation */
+.scale-in {
+  transform: scale(0.8);
+  animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes scaleIn {
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Line Reveal Animation */
+.line-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.line-reveal::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: lineGrow 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes lineGrow {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Mask Reveal Animation */
+.mask-reveal {
+  position: relative;
+  display: inline-block;
+}
+
+.mask-reveal::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-red);
+  transform-origin: right;
+  animation: maskSlide 1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes maskSlide {
+  0% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+/* Stagger Animation Delays for Lists */
+.stagger-item {
+  transform: translateY(40px);
+  animation: slideInBottom 0.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.stagger-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.stagger-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.stagger-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.stagger-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.stagger-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.stagger-item:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.stagger-item:nth-child(7) {
+  animation-delay: 0.7s;
+}
+.stagger-item:nth-child(8) {
+  animation-delay: 0.8s;
+}
+
+/* Counter Animation Style */
+.counter-animate {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Scroll-triggered visibility helper */
+[data-animate] {
+  visibility: hidden;
+}
+
+[data-animate].animated {
+  visibility: visible;
+}
+
+/* Parallax helper */
+.parallax-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.parallax-content {
+  will-change: transform;
+}
+
+/* Hover reveal effect */
+.hover-reveal-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-reveal-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.hover-reveal-container:hover .hover-reveal-content {
+  transform: translateY(0);
+}
+
+/* Split text animation for larger headings */
+.split-text-wrapper {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.split-text-line {
+  display: block;
+  transform: translateY(100%);
+  animation: slideUp 0.8s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.split-text-line:nth-child(1) {
+  animation-delay: 0s;
+}
+.split-text-line:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.split-text-line:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Typewriter Effect */
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--accent-red);
+  animation:
+    typing 3s steps(30, end),
+    blinkCaret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blinkCaret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--accent-red);
+  }
+}
+
+/* Number flip animation */
+.number-flip {
+  display: inline-flex;
+  overflow: hidden;
+  height: 1.2em;
+}
+
+.number-flip span {
+  display: block;
+  animation: numberFlip 0.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes numberFlip {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}

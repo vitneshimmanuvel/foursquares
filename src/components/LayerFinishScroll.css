@@ -1,0 +1,406 @@
+/* Layer Finish Scroll - Pinned Scroll Animation */
+
+.layer-scroll-section {
+  height: 250vh;
+  position: relative;
+  background: var(--bg-warm);
+}
+
+.layer-scroll-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.layer-scroll-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-2xl);
+  align-items: center;
+}
+
+/* Left Side - Text Content */
+.layer-scroll-left {
+  position: relative;
+  min-height: 450px;
+}
+
+.layer-intro,
+.layer-warranty {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.layer-intro.active,
+.layer-warranty.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Colorful Dots Icon */
+.colorful-dots-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: var(--space-lg);
+  background: radial-gradient(circle at 30% 30%, #0d6eaa 10%, transparent 10%),
+    radial-gradient(circle at 60% 20%, #e74c3c 7%, transparent 7%),
+    radial-gradient(circle at 45% 50%, #f1c40f 8%, transparent 8%),
+    radial-gradient(circle at 70% 45%, #16a085 6%, transparent 6%),
+    radial-gradient(circle at 25% 70%, #9b59b6 5%, transparent 5%),
+    radial-gradient(circle at 55% 75%, #e67e22 7%, transparent 7%);
+}
+
+.layer-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.2;
+  margin-bottom: var(--space-xl);
+}
+
+.layer-description {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+/* Warranty Section */
+.warranty-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: var(--space-2xl);
+  line-height: 1.3;
+}
+
+.warranty-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.warranty-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.layer-warranty.active .warranty-row {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.warranty-circle-badge {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  border: 3px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: var(--primary-white);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.warranty-row:hover .warranty-circle-badge {
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.warranty-number {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1;
+}
+
+.warranty-label {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  text-transform: lowercase;
+  margin-top: 2px;
+}
+
+.warranty-info {
+  flex: 1;
+}
+
+.warranty-info strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.warranty-info p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Right Side - Layer Stack */
+.layer-scroll-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.layer-stack-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  line-height: 1.3;
+}
+
+.layer-stack-visual {
+  position: relative;
+  width: 340px;
+  height: 420px;
+}
+
+/* Layer Cards with Images */
+.layer-card-stack {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: box-shadow 0.4s ease;
+}
+
+.layer-card-stack:hover {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* Layer Image */
+.layer-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.layer-card-stack:hover .layer-image {
+  transform: scale(1.08);
+}
+
+/* Sparkle/Shine Animation Overlay */
+.layer-sparkle {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1) 20%,
+      rgba(255, 255, 255, 0.4) 50%,
+      rgba(255, 255, 255, 0.1) 80%,
+      transparent);
+  transform: skewX(-20deg);
+  transition: left 0s ease;
+  pointer-events: none;
+}
+
+.layer-card-stack:hover .layer-sparkle {
+  left: 150%;
+  transition: left 0.8s ease;
+}
+
+/* Text Reveal on Hover */
+.layer-text-reveal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-md);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.layer-card-stack:hover .layer-text-reveal {
+  transform: translateY(0);
+}
+
+.layer-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  display: block;
+  line-height: 1.3;
+}
+
+/* Layer Positions - Stacked from top-left to bottom-right */
+/* Surface (silver) - top-left, back */
+.layer-1 {
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Chromatise (gray) - middle */
+.layer-2 {
+  top: 80px;
+  left: 70px;
+  z-index: 2;
+}
+
+/* Powder Coating (gold) - bottom-right, front */
+.layer-3 {
+  top: 160px;
+  left: 140px;
+  z-index: 3;
+}
+
+/* Bring any hovered card to top so popup is visible */
+.layer-card-stack.hovered,
+.layer-card-stack:hover {
+  z-index: 20 !important;
+}
+
+/* Colorful dots decoration */
+.layer-scroll-right::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 30% 30%, #0d6eaa 10%, transparent 10%),
+    radial-gradient(circle at 60% 25%, #e74c3c 7%, transparent 7%),
+    radial-gradient(circle at 45% 55%, #f1c40f 8%, transparent 8%),
+    radial-gradient(circle at 70% 50%, #16a085 6%, transparent 6%);
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .layer-scroll-section {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .layer-scroll-sticky {
+    position: relative;
+    height: auto;
+    padding: var(--space-3xl) 0;
+    overflow: visible;
+  }
+
+  .layer-scroll-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+    padding: 0 var(--space-lg);
+  }
+
+  .layer-scroll-left {
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4xl);
+  }
+
+  .layer-intro,
+  .layer-warranty {
+    position: relative;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .layer-title {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+
+  .layer-stack-visual {
+    width: 280px;
+    height: 360px;
+    margin: var(--space-xl) auto;
+  }
+
+  .layer-card-stack {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 576px) {
+  .layer-title {
+    font-size: 1.5rem;
+  }
+
+  .layer-description {
+    font-size: 0.95rem;
+  }
+
+  .warranty-row {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+    gap: var(--space-lg);
+  }
+
+  .warranty-circle-badge {
+    width: 65px;
+    height: 65px;
+  }
+
+  .warranty-number {
+    font-size: 1.1rem;
+  }
+
+  .layer-stack-title {
+    font-size: 1.2rem;
+  }
+
+  .layer-stack-visual {
+    width: 220px;
+    height: 300px;
+  }
+
+  .layer-card-stack {
+    width: 130px;
+    height: 130px;
+  }
+
+  .layer-2 {
+    top: 70px;
+    left: 45px;
+  }
+
+  .layer-3 {
+    top: 140px;
+    left: 90px;
+  }
+}

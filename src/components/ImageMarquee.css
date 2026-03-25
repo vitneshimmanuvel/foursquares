@@ -1,0 +1,202 @@
+/* Image Marquee - Modern Roboto-like styling */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+.marquee-section {
+  padding: 3rem 0;
+  background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+  overflow: hidden;
+}
+
+/* Header with Modern Font */
+.marquee-header {
+  text-align: center;
+  padding: 0 2rem 2rem;
+}
+
+.marquee-badge {
+  display: inline-block;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #0d6eaa;
+  background: rgba(13, 110, 170, 0.08);
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+.marquee-header h3 {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.marquee-header .highlight {
+  color: #0d6eaa;
+}
+
+/* Marquee Container */
+.marquee-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+}
+
+.marquee-container::before,
+.marquee-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(90deg, #ffffff 0%, transparent 100%);
+}
+
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(-90deg, #f8f9fa 0%, transparent 100%);
+}
+
+/* Marquee Track - Infinite Scroll Animation */
+.marquee-track {
+  display: flex;
+  gap: 1.5rem;
+  width: fit-content;
+  animation: marqueeScroll 40s linear infinite;
+}
+
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Marquee Item */
+.marquee-item {
+  flex-shrink: 0;
+  width: 280px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.marquee-image-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 4/3;
+}
+
+.marquee-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.marquee-item:hover .marquee-image-wrapper img {
+  transform: scale(1.1);
+}
+
+.marquee-overlay {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+}
+
+.marquee-tag {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+}
+
+.marquee-info {
+  padding: 0.75rem 0.25rem;
+  text-align: center;
+}
+
+.marquee-info h4 {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* Stats Section */
+.marquee-stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2.5rem 2rem 1rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  display: block;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0d6eaa;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  display: block;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .marquee-item {
+    width: 220px;
+  }
+
+  .marquee-stats {
+    gap: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+  }
+}

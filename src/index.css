@@ -1,0 +1,608 @@
+/* ========================================
+   Four Square Premium Design System
+   Blue Theme - Logo Inspired
+   ======================================== */
+
+/* Google Fonts Import - Modern Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import './styles/TextReveal.css';
+
+/* CSS Variables - Warm Biscuit/Coral Theme */
+:root {
+  /* Primary Colors - Warm & Inviting */
+  --primary-white: #ffffff;
+  --primary-light: #FDF8F5;
+  --primary-cream: #FAF0E6;
+  --primary-dark: #1a1a1a;
+
+  /* Warm Background Colors */
+  --bg-warm: #FDF8F5;
+  --bg-linen: #FAF0E6;
+  --bg-biscuit: #F5E6D3;
+  --bg-coral-light: #FFF5F0;
+
+  /* Accent Colors - Logo Blue */
+  --accent-red: #0d6eaa;
+  --accent-red-light: #1a8fd1;
+  --accent-red-dark: #0a5a8c;
+  --accent-coral: #2196f3;
+  --accent-orange: #03a9f4;
+
+  /* Secondary Accent - Teal/Green (kept for highlights) */
+  --accent-teal: #16a085;
+  --accent-teal-light: #1abc9c;
+
+  /* Neutral Colors - Better Contrast */
+  --neutral-white: #ffffff;
+  --neutral-off-white: #f8f9fa;
+  --neutral-light: #e8ecef;
+  --neutral-mid: #7a8b99;
+  --neutral-dark: #2c3e50;
+  --neutral-charcoal: #1a2a3a;
+  --text-dark: #1a2a3a;
+  --text-light: #4a5c6a;
+
+  /* Card & Container */
+  --card-bg: #ffffff;
+  --card-border: rgba(13, 110, 170, 0.1);
+  --card-shadow: 0 4px 20px rgba(13, 110, 170, 0.08);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #0d6eaa 0%, #2196f3 100%);
+  --gradient-dark: linear-gradient(180deg, #1a3a52 0%, #0d2a3d 100%);
+  --gradient-overlay: linear-gradient(180deg, rgba(13, 42, 61, 0.5) 0%, rgba(13, 42, 61, 0.7) 100%);
+  --gradient-light: linear-gradient(180deg, #ffffff 0%, #FDF8F5 100%);
+  --gradient-warm: linear-gradient(180deg, #FDF8F5 0%, #FAF0E6 100%);
+
+  /* Typography - Modern Poppins */
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+  --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(13, 110, 170, 0.05);
+  --shadow-md: 0 4px 12px rgba(13, 110, 170, 0.1);
+  --shadow-lg: 0 10px 25px rgba(13, 110, 170, 0.1);
+  --shadow-xl: 0 20px 40px rgba(13, 110, 170, 0.12);
+  --shadow-hover: 0 12px 30px rgba(13, 110, 170, 0.2);
+}
+
+/* Reset & Base Styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--primary-white);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding-top: 125px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 80px;
+  }
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text-dark);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2vw, 1.4rem);
+}
+
+p {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-base);
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+
+.section {
+  padding: var(--space-4xl) 0;
+}
+
+.section-light {
+  background: var(--primary-cream);
+}
+
+.section-white {
+  background: var(--primary-white);
+}
+
+.text-accent {
+  color: var(--accent-red);
+}
+
+.text-gradient {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Button Styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.btn-primary {
+  background: var(--accent-red);
+  color: var(--neutral-white);
+  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--accent-red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-dark);
+  border: 2px solid var(--neutral-light);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+}
+
+.btn-white {
+  background: var(--neutral-white);
+  color: var(--text-dark);
+}
+
+.btn-white:hover {
+  background: var(--neutral-off-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Modern Card */
+.modern-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition-base);
+  overflow: hidden;
+}
+
+.modern-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Glass Card (for dark sections) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  transition: all var(--transition-base);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-5px);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(13, 110, 170, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(13, 110, 170, 0.5);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Section Badge */
+.section-badge {
+  display: inline-block;
+  background: rgba(231, 76, 60, 0.1);
+  border: 1px solid var(--accent-red);
+  border-radius: var(--radius-full);
+  padding: var(--space-xs) var(--space-lg);
+  font-size: 0.8rem;
+  color: var(--accent-red);
+  margin-bottom: var(--space-md);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.section-header h2 {
+  margin-bottom: var(--space-md);
+}
+
+.section-header p {
+  max-width: 550px;
+  margin: 0 auto;
+  color: var(--text-light);
+}
+
+/* Line Art Background Pattern */
+.line-art-bg {
+  position: relative;
+  background-color: #fafafa;
+  background-image:
+    /* Furniture outlines - sofa */
+    linear-gradient(90deg, transparent 0%, transparent 60%, rgba(200, 200, 200, 0.3) 60.5%, transparent 61%),
+    /* Grid pattern */
+    linear-gradient(rgba(220, 220, 220, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 220, 220, 0.2) 1px, transparent 1px),
+    /* Diagonal lines */
+    repeating-linear-gradient(45deg,
+      transparent,
+      transparent 50px,
+      rgba(230, 230, 230, 0.15) 50px,
+      rgba(230, 230, 230, 0.15) 51px),
+    repeating-linear-gradient(-45deg,
+      transparent,
+      transparent 50px,
+      rgba(230, 230, 230, 0.15) 50px,
+      rgba(230, 230, 230, 0.15) 51px);
+  background-size: 100% 100%, 40px 40px, 40px 40px, 100% 100%, 100% 100%;
+}
+
+.line-art-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    /* Abstract geometric shapes */
+    radial-gradient(circle at 10% 30%, rgba(200, 200, 200, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 85% 60%, rgba(200, 200, 200, 0.08) 0%, transparent 25%),
+    /* Window frame outlines */
+    linear-gradient(to right, transparent 75%, rgba(180, 180, 180, 0.15) 75.2%, transparent 75.4%),
+    linear-gradient(to bottom, transparent 20%, rgba(180, 180, 180, 0.15) 20.2%, transparent 20.4%),
+    linear-gradient(to bottom, transparent 60%, rgba(180, 180, 180, 0.15) 60.2%, transparent 60.4%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.line-art-bg>* {
+  position: relative;
+  z-index: 1;
+}
+
+/* Page Header with Line Art */
+.page-header {
+  background: linear-gradient(135deg, #0d6eaa 0%, #1a3a52 50%, #0d2a3d 100%);
+  padding: 4rem 0 3rem;
+  /* Reduced from 8rem to match hero feel */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    /* Room outline - ceiling */
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, transparent 2%),
+    /* Floor line */
+    linear-gradient(180deg, transparent 85%, rgba(255, 255, 255, 0.08) 85.5%, transparent 86%),
+    /* Vertical lines - walls/windows */
+    linear-gradient(90deg, transparent 10%, rgba(255, 255, 255, 0.03) 10.2%, transparent 10.4%),
+    linear-gradient(90deg, transparent 25%, rgba(255, 255, 255, 0.03) 25.2%, transparent 25.4%),
+    linear-gradient(90deg, transparent 75%, rgba(255, 255, 255, 0.03) 75.2%, transparent 75.4%),
+    linear-gradient(90deg, transparent 90%, rgba(255, 255, 255, 0.03) 90.2%, transparent 90.4%),
+    /* Furniture sketch - rectangles */
+    linear-gradient(90deg, transparent 15%, rgba(255, 255, 255, 0.02) 15%, transparent 35%),
+    linear-gradient(90deg, transparent 65%, rgba(255, 255, 255, 0.02) 65%, transparent 85%),
+    /* Grid overlay */
+    repeating-linear-gradient(0deg,
+      transparent,
+      transparent 60px,
+      rgba(255, 255, 255, 0.02) 60px,
+      rgba(255, 255, 255, 0.02) 61px),
+    repeating-linear-gradient(90deg,
+      transparent,
+      transparent 60px,
+      rgba(255, 255, 255, 0.02) 60px,
+      rgba(255, 255, 255, 0.02) 61px);
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+.page-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 3px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+}
+
+.page-header h1 {
+  color: var(--neutral-white);
+  margin-bottom: var(--space-md);
+}
+
+.page-header p {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-red);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-red-dark);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent-red);
+  color: var(--neutral-white);
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+
+  #root,
+  .app {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .container {
+    padding: 0 var(--space-lg);
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .section {
+    padding: var(--space-2xl) 0;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2.22rem;
+  }
+
+  h2 {
+    font-size: 1.88rem;
+  }
+
+  h3 {
+    font-size: 1.44rem;
+  }
+
+  .btn-mobile-full {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  h1 {
+    font-size: 1.95rem;
+  }
+
+  h2 {
+    font-size: 1.65rem;
+  }
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Global Social Media Brand Colors */
+.social-link[aria-label="Facebook"]:hover,
+a[aria-label="Facebook"]:hover {
+  background: #1877f2 !important;
+  border-color: #1877f2 !important;
+  box-shadow: 0 8px 20px rgba(24, 119, 242, 0.4);
+  color: #fff !important;
+}
+
+.social-link[aria-label="Instagram"]:hover,
+a[aria-label="Instagram"]:hover {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888) !important;
+  border-color: #dc2743 !important;
+  box-shadow: 0 8px 20px rgba(220, 39, 67, 0.4);
+  color: #fff !important;
+}
+
+.social-link[aria-label="LinkedIn"]:hover,
+a[aria-label="LinkedIn"]:hover {
+  background: #0a66c2 !important;
+  border-color: #0a66c2 !important;
+  box-shadow: 0 8px 20px rgba(10, 102, 194, 0.4);
+  color: #fff !important;
+}
+
+.social-link[aria-label="YouTube"]:hover,
+a[aria-label="YouTube"]:hover {
+  background: #ff0000 !important;
+  border-color: #ff0000 !important;
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+  color: #fff !important;
+}
+
+.social-link[aria-label="Twitter"]:hover,
+a[aria-label="Twitter"]:hover {
+  background: #1da1f2 !important;
+  border-color: #1da1f2 !important;
+  box-shadow: 0 8px 20px rgba(29, 161, 242, 0.4);
+  color: #fff !important;
+}
+
+.social-link[aria-label="WhatsApp"]:hover,
+a[aria-label="WhatsApp"]:hover {
+  background: #25d366 !important;
+  border-color: #25d366 !important;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+  color: #fff !important;
+}
