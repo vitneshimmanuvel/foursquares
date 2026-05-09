@@ -32,7 +32,7 @@ const Aluminium = () => {
       image: aluminiumWindow,
       description: 'Ultra-slim aluminium profiles with smooth gliding mechanism. Maximum glass area for unobstructed views. Advanced thermal break technology for energy efficiency.',
       features: ['Ultra-slim 35mm profile design', 'Advanced polyamide thermal break', 'Premium powder-coated finishes (200+ colors)', 'Multi-point locking security system', 'Large panel configurations up to 4 meters', 'Concealed drainage system'],
-      price: 'Starting ₹1,200/sq.ft',
+
     },
     {
       title: 'Patio Sliding Doors',
@@ -40,7 +40,7 @@ const Aluminium = () => {
       image: slidingWindow,
       description: 'Large panel sliding doors connecting your living space to the garden or balcony. Whisper-quiet operation with heavy-duty rollers.',
       features: ['Heavy-duty stainless steel roller bearings', 'Interlocking anti-lift security mechanism', 'Wide panel configurations up to 3 meters', 'Integrated child safety locks', 'Optional mosquito mesh integration', 'Smooth powder-coated aluminum track'],
-      price: 'Starting ₹1,050/sq.ft',
+
     },
     {
       title: 'Bi-Fold Doors',
@@ -48,7 +48,7 @@ const Aluminium = () => {
       image: windowWood,
       description: 'Folding door systems that stack neatly to one side, creating wide open spaces connecting indoors and outdoors. Up to 90% opening.',
       features: ['Multi-panel folding mechanism', 'Top-hung or bottom rolling options', 'Flush threshold for seamless transition', 'Premium weather sealing', 'Multiple opening configurations', 'Available in 200+ colors'],
-      price: 'Starting ₹1,500/sq.ft',
+
     },
     {
       title: 'Aluminium Casement Windows',
@@ -56,7 +56,7 @@ const Aluminium = () => {
       image: windowGrey,
       description: 'Classic outward-opening casement windows with thermal break technology. Perfect combination of ventilation, security, and modern aesthetics.',
       features: ['Outward opening for maximum ventilation', 'Friction stay hinges', 'Multi-point espagnolette locking', 'Thermal break profiles', 'Optional fly screen', 'Drainage provisions'],
-      price: 'Starting ₹900/sq.ft',
+
     },
   ];
 
@@ -177,7 +177,7 @@ const Aluminium = () => {
                     <ul className="feature-list">
                       {product.features.map((f, i) => (<li key={i}><FaCheck className="check-icon" /> {f}</li>))}
                     </ul>
-                    <span className="price-tag">{product.price}</span>
+
                   </motion.div>
                 </>
               ) : (
@@ -189,7 +189,7 @@ const Aluminium = () => {
                     <ul className="feature-list">
                       {product.features.map((f, i) => (<li key={i}><FaCheck className="check-icon" /> {f}</li>))}
                     </ul>
-                    <span className="price-tag">{product.price}</span>
+
                   </motion.div>
                   <motion.div className="product-intro-image" initial={{ x: 80 }} whileInView={{ x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, delay: 0.15, ease: [0.65, 0, 0.35, 1] }}>
                     <img src={product.image} alt={product.title} />

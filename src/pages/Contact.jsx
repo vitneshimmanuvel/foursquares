@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaWhatsapp, FaCheck, FaUser, FaHome, FaWindowMaximize, FaComment } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaWhatsapp, FaCheck, FaUser, FaComment } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
@@ -8,12 +8,10 @@ const Contact = () => {
     name: '',
     email: '',
     phone: '',
-    propertyType: '',
-    windowType: '',
-    rooms: '',
     message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
@@ -39,12 +37,33 @@ const Contact = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 5000);
-      setFormData({ name: '', email: '', phone: '', propertyType: '', windowType: '', rooms: '', message: '' });
+      setIsSubmitting(true);
+      try {
+        const response = await fetch('http://localhost:5000/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        
+        if (response.ok) {
+          setIsSubmitted(true);
+          setTimeout(() => setIsSubmitted(false), 5000);
+          setFormData({ name: '', email: '', phone: '', message: '' });
+        } else {
+          console.error('Failed to submit form');
+          alert('Failed to submit the form. Please try again later.');
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert('An error occurred. Please try again later.');
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -52,7 +71,7 @@ const Contact = () => {
     { icon: <FaPhone />, title: 'Phone', value: '+91 98765 43210', link: 'tel:+919876543210', className: 'phone-icon' },
     { icon: <FaWhatsapp />, title: 'WhatsApp', value: '+91 98765 43210', link: 'https://wa.me/919876543210', className: 'whatsapp-icon' },
     { icon: <FaEnvelope />, title: 'Email', value: 'info@foursquare.com', link: 'mailto:info@foursquare.com', className: 'email-icon' },
-    { icon: <FaClock />, title: 'Working Hours', value: 'Mon - Sat: 9 AM - 7 PM', link: null, className: 'clock-icon' },
+    { icon: <FaClock />, title: 'Working Hours', value: 'Mon - Sat: 10 AM - 8 PM', link: null, className: 'clock-icon' },
   ];
 
   return (
@@ -148,73 +167,6 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  {/* Property Details */}
-                  <div className="form-section">
-                    <h4 className="form-section-title">
-                      <FaHome />
-                      Property Details
-                    </h4>
-                    <div className="form-row">
-                      <div className="form-group">
-                        <label htmlFor="propertyType">Property Type</label>
-                        <select
-                          id="propertyType"
-                          name="propertyType"
-                          value={formData.propertyType}
-                          onChange={handleChange}
-                        >
-                          <option value="">Select property type</option>
-                          <option value="1bhk">1 BHK Apartment</option>
-                          <option value="2bhk">2 BHK Apartment</option>
-                          <option value="3bhk">3 BHK Apartment</option>
-                          <option value="villa">Villa / Bungalow</option>
-                          <option value="commercial">Commercial Space</option>
-                          <option value="other">Other</option>
-                        </select>
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="rooms">Number of Windows</label>
-                        <select
-                          id="rooms"
-                          name="rooms"
-                          value={formData.rooms}
-                          onChange={handleChange}
-                        >
-                          <option value="">Select approximate count</option>
-                          <option value="1-5">1 - 5 Windows</option>
-                          <option value="6-10">6 - 10 Windows</option>
-                          <option value="11-20">11 - 20 Windows</option>
-                          <option value="20+">More than 20</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Window Preference */}
-                  <div className="form-section">
-                    <h4 className="form-section-title">
-                      <FaWindowMaximize />
-                      Window Preference
-                    </h4>
-                    <div className="window-type-selector">
-                      {['UPVC Windows', 'Aluminium Windows', 'Sliding Doors', 'Not Sure'].map((type) => (
-                        <label
-                          key={type}
-                          className={`window-type-option ${formData.windowType === type ? 'selected' : ''}`}
-                        >
-                          <input
-                            type="radio"
-                            name="windowType"
-                            value={type}
-                            checked={formData.windowType === type}
-                            onChange={handleChange}
-                          />
-                          <span className="option-label">{type}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-
                   {/* Message */}
                   <div className="form-section">
                     <h4 className="form-section-title">
@@ -234,9 +186,9 @@ const Contact = () => {
                     </div>
                   </div>
 
-                  <button type="submit" className="btn btn-primary submit-btn">
-                    Submit Request
-                    <FaCheck />
+                  <button type="submit" className="btn btn-primary submit-btn" disabled={isSubmitting}>
+                    {isSubmitting ? 'Submitting...' : 'Submit Request'}
+                    {!isSubmitting && <FaCheck />}
                   </button>
                 </form>
               )}

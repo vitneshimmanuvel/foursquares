@@ -103,7 +103,7 @@ const Header = () => {
   const isProductsActive = location.pathname.startsWith('/products');
 
   return (
-    <div className={`navbar-wrapper ${isScrolled ? 'scrolled' : ''}`}>
+    <div className={`navbar-wrapper`}>
       {/* Top Bar */}
       <div className="top-bar">
         <div className="container top-bar-content">
@@ -124,7 +124,7 @@ const Header = () => {
       </div>
 
       {/* Main Header */}
-      <header className={`header ${isScrolled ? 'scrolled' : ''} ${!showLargeLogo ? 'logo-small' : ''}`}>
+      <header className={`header`}>
         <div className="container header-content">
           <Link to="/" className="logo">
             <img src={logoImg} alt="Four Square Logo" className="logo-img" />

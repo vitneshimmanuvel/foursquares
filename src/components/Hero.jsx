@@ -12,9 +12,9 @@ const Hero = () => {
   const statsInView = useInView(statsRef, { once: true, margin: "-100px" });
 
   const features = [
-    { icon: <FaCheck />, text: 'Aluminium Windows' },
-    { icon: <FaShieldAlt />, text: '25 Year Warranty' },
-    { icon: <FaCheck />, text: 'Powder Coated' },
+    { icon: <FaCheck />, text: 'uPVC' },
+    { icon: <FaShieldAlt />, text: 'Aluminium' },
+    { icon: <FaCheck />, text: 'Interiors' },
   ];
 
   // Invisible hoverable zones over windows

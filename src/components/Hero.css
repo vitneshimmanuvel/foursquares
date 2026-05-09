@@ -106,11 +106,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  -webkit-text-stroke: 1px black;
 }
 
 .hero-highlight {
   color: var(--accent-coral);
   display: block;
+  -webkit-text-stroke: 1px black;
 }
 
 .hero-description {
@@ -195,11 +197,16 @@
   border: 2px solid rgba(255, 255, 255, 0.4) !important;
   color: var(--neutral-white) !important;
   backdrop-filter: blur(10px);
-  padding: var(--space-md) var(--space-2xl);
+  padding: 14px 40px !important;
   font-weight: 600;
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  border-radius: 50px !important;
 }
 
 .hero-explore-btn::before {

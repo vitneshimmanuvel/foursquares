@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import upvcWindow from '../assets/images/upvc_window.png';
 import aluminiumWindow from '../assets/images/aluminium_window.png';
 import slidingWindow from '../assets/images/sliding_window.png';
@@ -95,6 +96,26 @@ const ImageMarquee = () => {
     { target: 50, suffix: '+', label: 'Expert Craftsmen' },
   ];
 
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
+  const openLightbox = (index) => {
+    setSelectedImageIndex(index % marqueeItems.length);
+  };
+
+  const closeLightbox = () => {
+    setSelectedImageIndex(null);
+  };
+
+  const nextImage = (e) => {
+    e.stopPropagation();
+    setSelectedImageIndex((prev) => (prev + 1) % marqueeItems.length);
+  };
+
+  const prevImage = (e) => {
+    e.stopPropagation();
+    setSelectedImageIndex((prev) => (prev - 1 + marqueeItems.length) % marqueeItems.length);
+  };
+
   return (
     <section className="marquee-section">
       <div className="marquee-header">
@@ -109,6 +130,7 @@ const ImageMarquee = () => {
               key={index}
               className="marquee-item"
               whileHover={{ scale: 1.05 }}
+              onClick={() => openLightbox(index)}
             >
               <div className="marquee-image-wrapper">
                 <img src={item.image} alt={item.title} />
@@ -139,6 +161,41 @@ const ImageMarquee = () => {
           </motion.div>
         ))}
       </div>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {selectedImageIndex !== null && (
+          <motion.div
+            className="marquee-lightbox-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeLightbox}
+          >
+            <button className="marquee-lightbox-close" onClick={closeLightbox}>
+              <FaTimes />
+            </button>
+            <button className="marquee-lightbox-prev" onClick={prevImage}>
+              <FaChevronLeft />
+            </button>
+            <button className="marquee-lightbox-next" onClick={nextImage}>
+              <FaChevronRight />
+            </button>
+            <motion.div
+              className="marquee-lightbox-content"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={marqueeItems[selectedImageIndex].image}
+                alt={marqueeItems[selectedImageIndex].title}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

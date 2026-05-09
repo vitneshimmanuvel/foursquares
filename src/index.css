@@ -213,13 +213,11 @@ a {
 .btn-primary {
   background: var(--accent-red);
   color: var(--neutral-white);
-  box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
 }
 
 .btn-primary:hover {
   background: var(--accent-red-dark);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
 }
 
 .btn-outline {
