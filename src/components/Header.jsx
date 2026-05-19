@@ -1,9 +1,121 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaPhone, FaEnvelope, FaBars, FaTimes, FaChevronDown } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaBars, FaTimes, FaChevronDown, FaChevronRight } from 'react-icons/fa';
 import logoImg from '../assets/images/f2_logo-removebg-preview.png';
 import './Header.css';
+
+// --- Desktop Nested Dropdown Item ---
+const DropdownItem = ({ item, closeMenu }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const hasChildren = item.children && item.children.length > 0;
+  let hoverTimeout = useRef(null);
+
+  const handleMouseEnter = () => {
+    clearTimeout(hoverTimeout.current);
+    setIsOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    hoverTimeout.current = setTimeout(() => setIsOpen(false), 150);
+  };
+
+  if (!hasChildren) {
+    return (
+      <Link
+        to={item.path || '#'}
+        className={`dropdown-item ${location.pathname === item.path ? 'active' : ''}`}
+        onClick={closeMenu}
+      >
+        {item.label}
+      </Link>
+    );
+  }
+
+  return (
+    <div
+      className="nested-dropdown"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <Link
+        to={item.path || '#'}
+        className={`dropdown-item nested-dropdown-toggle ${location.pathname === item.path ? 'active' : ''}`}
+        onClick={(e) => {
+          if (!item.path) e.preventDefault();
+          else closeMenu();
+        }}
+      >
+        {item.label}
+        <FaChevronRight className="dropdown-arrow right-arrow" />
+      </Link>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="dropdown-menu sub-menu"
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -10 }}
+            transition={{ duration: 0.2 }}
+          >
+            {item.children.map((child, idx) => (
+              <DropdownItem key={idx} item={child} closeMenu={closeMenu} />
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+// --- Mobile Nested Dropdown Item ---
+const MobileDropdownItem = ({ item, closeMenu, level = 0 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const hasChildren = item.children && item.children.length > 0;
+
+  if (!hasChildren) {
+    return (
+      <Link
+        to={item.path || '#'}
+        className={`mobile-dropdown-item ${location.pathname === item.path ? 'active' : ''}`}
+        style={{ paddingLeft: `calc(var(--space-md) + ${level * 15}px)` }}
+        onClick={closeMenu}
+      >
+        {item.label}
+      </Link>
+    );
+  }
+
+  return (
+    <div className="mobile-nested-dropdown">
+      <button
+        className={`mobile-dropdown-item mobile-dropdown-toggle ${isOpen ? 'active' : ''}`}
+        style={{ paddingLeft: `calc(var(--space-md) + ${level * 15}px)` }}
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {item.label}
+        <FaChevronDown className={`dropdown-arrow ${isOpen ? 'open' : ''}`} />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            style={{ overflow: 'hidden' }}
+          >
+            {item.children.map((child, idx) => (
+              <MobileDropdownItem key={idx} item={child} closeMenu={closeMenu} level={level + 1} />
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -95,8 +207,26 @@ const Header = () => {
   };
 
   const productSubLinks = [
-    { path: '/products/interiors', label: 'Interiors' },
-    { path: '/products/upvc', label: 'UPVC Windows' },
+    { 
+      path: '/products/interiors', 
+      label: 'Interiors',
+      children: [
+        { path: '/products/interiors/full-home', label: 'Full Home Interiors' },
+        { path: '/products/interiors/kitchen', label: 'Modular Kitchen' },
+        { path: '/products/interiors/living-room', label: 'Living Room' },
+        { path: '/products/interiors/bedroom', label: 'Bedroom' }
+      ]
+    },
+    { 
+      path: '/products/upvc', 
+      label: 'UPVC Windows',
+      children: [
+        { path: '/products/upvc/casement', label: 'Casement Windows' },
+        { path: '/products/upvc/sliding', label: 'Sliding Windows' },
+        { path: '/products/upvc/tilt-turn', label: 'Tilt & Turn Windows' },
+        { path: '/products/upvc/colours', label: 'Colour Options' },
+      ]
+    },
     { path: '/products/aluminium', label: 'Aluminium' },
   ];
 
@@ -161,15 +291,8 @@ const Header = () => {
                     exit={{ opacity: 0, y: -8, scaleY: 0.95 }}
                     transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                   >
-                    {productSubLinks.map((sub) => (
-                      <Link
-                        key={sub.path}
-                        to={sub.path}
-                        className={`dropdown-item ${location.pathname === sub.path ? 'active' : ''}`}
-                        onClick={() => setIsProductsOpen(false)}
-                      >
-                        {sub.label}
-                      </Link>
+                    {productSubLinks.map((sub, idx) => (
+                      <DropdownItem key={idx} item={sub} closeMenu={() => setIsProductsOpen(false)} />
                     ))}
                   </motion.div>
                 )}
@@ -251,15 +374,8 @@ const Header = () => {
                       >
                         All Products
                       </Link>
-                      {productSubLinks.map((sub) => (
-                        <Link
-                          key={sub.path}
-                          to={sub.path}
-                          className={`mobile-dropdown-item ${location.pathname === sub.path ? 'active' : ''}`}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          {sub.label}
-                        </Link>
+                      {productSubLinks.map((sub, idx) => (
+                        <MobileDropdownItem key={idx} item={sub} closeMenu={() => setIsMobileMenuOpen(false)} />
                       ))}
                     </motion.div>
                   )}
@@ -296,3 +412,4 @@ const Header = () => {
 };
 
 export default Header;
+

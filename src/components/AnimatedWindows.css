@@ -1,0 +1,142 @@
+.animated-window-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.window-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: #555;
+  font-weight: 500;
+  text-align: center;
+}
+
+.window-model {
+  perspective: 1200px; /* Crucial for 3D effect */
+  cursor: pointer;
+}
+
+.window-model:hover .window-label {
+  color: #000;
+}
+
+.window-frame {
+  border: 6px solid #a0a0a0;
+  background: #d9f0fa; /* Represents the sky/outside when opened */
+  border-radius: 4px;
+  display: flex;
+  position: relative;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.15), inset 0 0 15px rgba(0,0,0,0.1);
+  transition: border-color 0.3s ease;
+}
+
+.window-model:hover .window-frame {
+  border-color: #888888;
+}
+
+.window-divider-vertical {
+  width: 5px;
+  background: #a0a0a0;
+  height: 100%;
+  z-index: 1;
+}
+
+.window-divider-horizontal {
+  height: 5px;
+  background: #a0a0a0;
+  width: 100%;
+  z-index: 1;
+}
+
+.window-sash {
+  flex: 1;
+  border: 4px solid #c0c0c0;
+  background: rgba(180, 230, 255, 0.45); /* Beautiful blue glass */
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1), 0 0 5px rgba(0,0,0,0.05);
+  transform-style: preserve-3d;
+  z-index: 2;
+  backdrop-filter: blur(2px);
+}
+
+/* Glass reflection */
+.window-sash::after, .window-fixed::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 50%);
+  pointer-events: none;
+}
+
+/* Handles */
+.window-handle {
+  position: absolute;
+  width: 4px;
+  height: 22px;
+  background: #666;
+  border-radius: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.handle-pos-right { right: 4px; }
+.handle-pos-left { left: 4px; }
+.handle-pos-bottom { 
+  bottom: 4px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  width: 22px; 
+  height: 4px; 
+  top: auto; 
+}
+
+/* Transform Origins */
+.sash-hinge-left { transform-origin: left center; }
+.sash-hinge-right { transform-origin: right center; }
+.sash-hinge-top { transform-origin: top center; }
+.sash-hinge-bottom { transform-origin: bottom center; }
+
+/* Open States on Hover */
+.window-model:hover .sash-hinge-left { transform: rotateY(-80deg); }
+.window-model:hover .sash-hinge-right { transform: rotateY(80deg); }
+.window-model:hover .sash-hinge-top { transform: rotateX(60deg); }
+.window-model:hover .sash-hinge-bottom { transform: rotateX(-60deg); }
+
+/* Sliding States on Hover */
+.window-model:hover .sash-slide-left { transform: translateZ(15px) translateX(-60%); z-index: 3; }
+.window-model:hover .sash-slide-right { transform: translateZ(15px) translateX(60%); z-index: 3; }
+
+/* Tilt & Turn States on Hover */
+/* Animations removed per request */
+.sash-tilt-left {
+  /* static state */
+}
+.sash-tilt-right {
+  /* static state */
+}
+
+/* Fixed pane */
+.window-fixed {
+  flex: 1;
+  border: 4px solid #c0c0c0;
+  background: rgba(180, 230, 255, 0.45); /* Beautiful blue glass */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+.fixed-label {
+  font-size: 0.5rem;
+  color: #555;
+  letter-spacing: 1px;
+  font-family: 'Inter', sans-serif;
+  user-select: none;
+  opacity: 0.5;
+}

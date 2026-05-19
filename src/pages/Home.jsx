@@ -199,9 +199,9 @@ const Home = () => {
                     <p className="story-text">{item.text}</p>
                     <p className="story-subtext">{item.subtext}</p>
                     <div className="explore-links">
-                      <Link to="/products/interiors" className="explore-link">Interiors</Link>
-                      <Link to="/products/upvc" className="explore-link">UPVC</Link>
-                      <Link to="/products/aluminium" className="explore-link">Aluminium</Link>
+                      <Link to={item.link} className="btn btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
+                        Explore Range <FaArrowRight />
+                      </Link>
                     </div>
                   </motion.div>
                 </>
@@ -219,9 +219,9 @@ const Home = () => {
                     <p className="story-text">{item.text}</p>
                     <p className="story-subtext">{item.subtext}</p>
                     <div className="explore-links">
-                      <Link to="/products/interiors" className="explore-link">Interiors</Link>
-                      <Link to="/products/upvc" className="explore-link">UPVC</Link>
-                      <Link to="/products/aluminium" className="explore-link">Aluminium</Link>
+                      <Link to={item.link} className="btn btn-outline" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
+                        Explore Range <FaArrowRight />
+                      </Link>
                     </div>
                   </motion.div>
                   <motion.div

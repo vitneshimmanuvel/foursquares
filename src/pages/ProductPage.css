@@ -553,3 +553,138 @@
     flex-wrap: wrap;
   }
 }
+
+/* ===== ALUMINIUM PAGE SPECIFIC ===== */
+.full-screen-hero {
+  height: 85vh;
+  min-height: 600px;
+}
+
+.left-align {
+  text-align: left;
+  max-width: 800px;
+  margin-left: 0;
+}
+
+.hero-subtext {
+  font-size: 1.25rem !important;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.dark-overlay {
+  background: linear-gradient(90deg, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.4) 100%);
+}
+
+.upgrade-bar-section {
+  background: var(--brand-primary);
+  color: white;
+  padding: var(--space-xl) 0;
+}
+
+.upgrade-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2xl);
+}
+
+.upgrade-text h2 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-xs);
+  color: white;
+}
+
+.upgrade-text p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+}
+
+.upgrade-actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-shrink: 0;
+}
+
+.alu-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-2xl);
+}
+
+.alu-product-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.alu-product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.alu-product-img {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.alu-product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.alu-product-card:hover .alu-product-img img {
+  transform: scale(1.05);
+}
+
+.alu-product-info {
+  padding: var(--space-xl);
+}
+
+.alu-product-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: var(--space-xs);
+  color: var(--text-primary);
+}
+
+.alu-product-info p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+}
+
+.alu-features-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.alu-badge {
+  background: #f0f4f8;
+  color: var(--brand-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.alu-badge .check-icon {
+  font-size: 0.75rem;
+}
+
+@media (max-width: 992px) {
+  .upgrade-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}

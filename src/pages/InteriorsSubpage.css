@@ -1,0 +1,181 @@
+.interiors-subpage {
+  padding-top: 80px;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+/* Hero Section */
+.int-sub-hero {
+  position: relative;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  background-size: cover;
+  background-position: center;
+}
+
+.int-sub-hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.int-sub-hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 40px;
+}
+
+.int-sub-hero-content h1 {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  color: #ffffff !important;
+}
+
+.int-sub-hero-content p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  color: #ffffff !important;
+}
+
+/* Common Section */
+.int-section {
+  padding: 80px 0;
+}
+
+.int-section.bg-light {
+  background-color: #f9f9f9;
+}
+
+.int-section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.int-section-header h2 {
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.int-section-header p {
+  font-size: 1.05rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Alternating Features (Left Image, Right Text / Right Image, Left Text) */
+.int-feature-row {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.int-feature-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.int-feature-row:last-child {
+  margin-bottom: 0;
+}
+
+.int-feature-img {
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.int-feature-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.int-feature-img:hover img {
+  transform: scale(1.05);
+}
+
+.int-feature-text {
+  flex: 1;
+}
+
+.int-feature-text h3 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.int-feature-text p {
+  font-size: 1.05rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* Grid layout for steps or smaller items */
+.int-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.int-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.int-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.int-card-icon {
+  font-size: 3rem;
+  color: #0d6eaa;
+  margin-bottom: 20px;
+}
+
+.int-card h3 {
+  font-size: 1.4rem;
+  color: #222;
+  margin-bottom: 15px;
+}
+
+.int-card p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .int-feature-row, .int-feature-row.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .int-sub-hero-content h1 {
+    font-size: 2rem;
+  }
+}

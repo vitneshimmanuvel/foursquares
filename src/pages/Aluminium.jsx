@@ -27,36 +27,32 @@ const Aluminium = () => {
 
   const products = [
     {
-      title: 'Aluminium Sliding Windows',
-      subtitle: 'Modern & Sleek',
-      image: aluminiumWindow,
-      description: 'Ultra-slim aluminium profiles with smooth gliding mechanism. Maximum glass area for unobstructed views. Advanced thermal break technology for energy efficiency.',
-      features: ['Ultra-slim 35mm profile design', 'Advanced polyamide thermal break', 'Premium powder-coated finishes (200+ colors)', 'Multi-point locking security system', 'Large panel configurations up to 4 meters', 'Concealed drainage system'],
-
-    },
-    {
-      title: 'Patio Sliding Doors',
-      subtitle: 'Indoor-Outdoor Living',
+      title: 'Sliding Windows & Doors',
+      subtitle: 'Graf 26, Graf 32 & Graf 45 series',
       image: slidingWindow,
-      description: 'Large panel sliding doors connecting your living space to the garden or balcony. Whisper-quiet operation with heavy-duty rollers.',
-      features: ['Heavy-duty stainless steel roller bearings', 'Interlocking anti-lift security mechanism', 'Wide panel configurations up to 3 meters', 'Integrated child safety locks', 'Optional mosquito mesh integration', 'Smooth powder-coated aluminum track'],
-
+      description: 'Graf 26, Graf 32 & Graf 45 series for apartments, villas, and premium residences — from slim-profile everyday sliders to large-format sliding doors with corner-slide and concealed-track options.',
+      features: ['Up to 4200mm height', 'Concealed tracks', 'Corner sliders'],
     },
     {
-      title: 'Bi-Fold Doors',
-      subtitle: 'Open Living',
-      image: windowWood,
-      description: 'Folding door systems that stack neatly to one side, creating wide open spaces connecting indoors and outdoors. Up to 90% opening.',
-      features: ['Multi-panel folding mechanism', 'Top-hung or bottom rolling options', 'Flush threshold for seamless transition', 'Premium weather sealing', 'Multiple opening configurations', 'Available in 200+ colors'],
-
-    },
-    {
-      title: 'Aluminium Casement Windows',
-      subtitle: 'Maximum Ventilation',
+      title: 'Casement Windows & Doors',
+      subtitle: 'Livio Minimal & Robus 40 series',
       image: windowGrey,
-      description: 'Classic outward-opening casement windows with thermal break technology. Perfect combination of ventilation, security, and modern aesthetics.',
-      features: ['Outward opening for maximum ventilation', 'Friction stay hinges', 'Multi-point espagnolette locking', 'Thermal break profiles', 'Optional fly screen', 'Drainage provisions'],
-
+      description: 'Livio Minimal & Robus 40 series for clean sightlines and strong sealing performance — ideal for openable windows and doors with premium hardware, concealed closers, and bay-window options.',
+      features: ['Minimal sightlines', 'Up to 2.7m doors', 'Bay windows'],
+    },
+    {
+      title: 'Fold & Slide Systems',
+      subtitle: 'Seamless indoor-outdoor living',
+      image: windowWood,
+      description: 'High-performance folding systems that can open up entire walls. Smooth top or bottom rolling mechanisms for effortless operation and maximum space utilization.',
+      features: ['Up to 90% clear opening', 'Heavy-duty rollers', 'Weather sealed'],
+    },
+    {
+      title: 'Facade & Skylight Systems',
+      subtitle: 'Architectural Glazing',
+      image: aluminiumWindow,
+      description: 'Premium curtain wall and skylight systems for modern architectural designs. Engineered for maximum structural integrity and energy efficiency.',
+      features: ['Structural glazing', 'Thermal break options', 'Custom configurations'],
     },
   ];
 
@@ -127,17 +123,31 @@ const Aluminium = () => {
   };
 
   return (
-    <main className="product-page">
-      <section className="product-hero" style={{ backgroundImage: `url(${aluminiumWindow})` }}>
-        <div className="product-hero-overlay"></div>
-        <div className="container product-hero-content">
-          <motion.span className="section-badge" initial={{ y: 20 }} animate={{ y: 0 }} transition={{ duration: 0.5 }}>Aluminium</motion.span>
-          <motion.h1 initial={{ y: 30 }} animate={{ y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
-            Aluminium <span className="text-gradient">Windows & Doors</span>
+    <main className="product-page aluminium-page">
+      <section className="product-hero full-screen-hero" style={{ backgroundImage: `url(https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)` }}>
+        <div className="product-hero-overlay dark-overlay"></div>
+        <div className="container product-hero-content left-align">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+            Premium Aluminium Windows & Doors for Modern India
           </motion.h1>
-          <motion.p initial={{ y: 30 }} animate={{ y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-            Ultra-slim profiles with maximum glass area, advanced thermal break technology, and 200+ powder-coated finishes.
+          <motion.p className="hero-subtext" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }}>
+            Precision-engineered aluminium window & door systems built with 6063-T6 aluminium alloy — sliding, casement & fold-slide configurations backed by a 25-year surface protection warranty.
           </motion.p>
+        </div>
+      </section>
+
+      <section className="upgrade-bar-section">
+        <div className="container">
+          <div className="upgrade-content">
+            <div className="upgrade-text">
+              <h2>Upgrade to Premium Aluminium Windows & Doors</h2>
+              <p>Share your requirement for aluminium windows, doors or facades to get pricing + a personalized consultation. Pan-India delivery available.</p>
+            </div>
+            <div className="upgrade-actions">
+              <Link to="/contact" className="btn btn-light"><FaCheck style={{marginRight: '8px'}} /> Get Your Quote</Link>
+              <Link to="/contact" className="btn btn-outline-light">Book Consultation</Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -160,46 +170,44 @@ const Aluminium = () => {
         </div>
       </section>
 
-      {/* Products */}
-      {products.map((product, index) => (
-        <section key={index} className={`product-section ${index % 2 === 0 ? 'section-warm' : 'section-linen'}`}>
-          <div className="container">
-            <div className={`product-intro-grid ${index % 2 !== 0 ? 'reverse' : ''}`}>
-              {index % 2 === 0 ? (
-                <>
-                  <motion.div className="product-intro-image" initial={{ x: -80 }} whileInView={{ x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: [0.65, 0, 0.35, 1] }}>
-                    <img src={product.image} alt={product.title} />
-                  </motion.div>
-                  <motion.div className="product-intro-content" initial={{ x: 80 }} whileInView={{ x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, delay: 0.15, ease: [0.65, 0, 0.35, 1] }}>
-                    <span className="section-badge">{product.subtitle}</span>
-                    <h2>{product.title}</h2>
-                    <p>{product.description}</p>
-                    <ul className="feature-list">
-                      {product.features.map((f, i) => (<li key={i}><FaCheck className="check-icon" /> {f}</li>))}
-                    </ul>
-
-                  </motion.div>
-                </>
-              ) : (
-                <>
-                  <motion.div className="product-intro-content" initial={{ x: -80 }} whileInView={{ x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: [0.65, 0, 0.35, 1] }}>
-                    <span className="section-badge">{product.subtitle}</span>
-                    <h2>{product.title}</h2>
-                    <p>{product.description}</p>
-                    <ul className="feature-list">
-                      {product.features.map((f, i) => (<li key={i}><FaCheck className="check-icon" /> {f}</li>))}
-                    </ul>
-
-                  </motion.div>
-                  <motion.div className="product-intro-image" initial={{ x: 80 }} whileInView={{ x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, delay: 0.15, ease: [0.65, 0, 0.35, 1] }}>
-                    <img src={product.image} alt={product.title} />
-                  </motion.div>
-                </>
-              )}
-            </div>
+      {/* Products Grids */}
+      <section className="product-section section-linen">
+        <div className="container">
+          <div className="section-header text-center" style={{marginBottom: '50px'}}>
+            <span className="section-badge">Product Range</span>
+            <h2 style={{fontSize: '2.5rem', marginBottom: '15px'}}>Sliding, Casement, Fold & Slide, Facade & Skylight Systems</h2>
+            <p style={{maxWidth: '800px', margin: '0 auto', fontSize: '1.1rem', color: '#555'}}>
+              Choose the right system based on your space, view, ventilation needs, and design intent — for windows, doors, and facade applications.
+            </p>
           </div>
-        </section>
-      ))}
+
+          <div className="alu-products-grid">
+            {products.map((product, index) => (
+              <motion.div 
+                key={index} 
+                className="alu-product-card"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <div className="alu-product-img">
+                  <img src={product.image} alt={product.title} />
+                </div>
+                <div className="alu-product-info">
+                  <h3>{product.title}</h3>
+                  <p>{product.description}</p>
+                  <div className="alu-features-badges">
+                    {product.features.map((f, i) => (
+                      <span key={i} className="alu-badge"><FaCheck className="check-icon" /> {f}</span>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* LayerFinishScroll - Scroll Pinned Animation */}
       <LayerFinishScroll />

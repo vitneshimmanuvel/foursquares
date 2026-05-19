@@ -6,6 +6,7 @@ import './ProductPage.css';
 import upvcWindow from '../assets/images/upvc_window.png';
 import windowWhite from '../assets/images/window_color_white.png';
 import slidingWindow from '../assets/images/sliding_window.png';
+import { WindowGrid } from '../components/AnimatedWindows';
 
 const Upvc = () => {
   const products = [
@@ -14,8 +15,8 @@ const Upvc = () => {
       subtitle: 'Classic & Elegant',
       image: upvcWindow,
       description: 'Premium UPVC casement windows with German engineering. Multi-chamber profiles for superior thermal insulation that reduce cooling costs by up to 40%.',
-      features: ['Multi-chamber profile for maximum insulation', 'Double/Triple glazing with argon gas fill', 'Internal galvanized steel reinforcement', 'Premium German Roto/Siegenia hardware', 'Fusion-welded corners for superior strength', 'Multiple finishes: white, cream, wood-grain, grey'],
-
+      features: ['Applicable for hall and bed rooms facing busy and noisy streets', 'Significant for thermal and acoustic performance', 'Supports large sized fixed glass enabling better view and light', 'Stronger system developed against wind load', 'Multiple finishes: white, cream, wood-grain, grey'],
+      dimensions: true // flag to render table
     },
     {
       title: 'UPVC Tilt & Turn Windows',
@@ -112,6 +113,8 @@ const Upvc = () => {
                     <span className="section-badge">{product.subtitle}</span>
                     <h2>{product.title}</h2>
                     <p>{product.description}</p>
+                    
+                    <h3 style={{ fontSize: '1.2rem', marginTop: '20px', marginBottom: '10px', color: '#333' }}>Advantages</h3>
                     <ul className="feature-list">
                       {product.features.map((f, i) => (
                         <li key={i}><FaCheck className="check-icon" /> {f}</li>
@@ -151,6 +154,16 @@ const Upvc = () => {
                 </>
               )}
             </div>
+
+            {/* Link to dedicated page for Casement Windows */}
+            {product.title === 'UPVC Casement Windows' && (
+              <div style={{ marginTop: '40px', textAlign: 'center' }}>
+                <Link to="/products/upvc/casement" className="btn btn-primary" style={{ padding: '15px 35px' }}>
+                  Explore 26 Casement Designs & Technical Drawings
+                  <FaArrowRight style={{ marginLeft: '10px' }} />
+                </Link>
+              </div>
+            )}
           </div>
         </section>
       ))}

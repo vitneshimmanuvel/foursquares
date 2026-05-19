@@ -249,6 +249,28 @@
   color: #0d6eaa;
 }
 
+/* ===== NESTED DROPDOWN ===== */
+.nested-dropdown {
+  position: relative;
+}
+
+.nested-dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-arrow.right-arrow {
+  transform: rotate(0deg); /* Initial state */
+}
+
+.dropdown-menu.sub-menu {
+  top: 0;
+  left: 100%;
+  transform: none; /* remove translateX(-50%) */
+  margin-left: 2px;
+}
+
 /* Mobile Dropdown */
 .mobile-dropdown {
   border-bottom: 1px solid var(--card-border);

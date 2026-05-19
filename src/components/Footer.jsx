@@ -44,9 +44,9 @@ const Footer = () => {
             <ul className="footer-links">
               <li><Link to="/products/interiors">Interiors</Link></li>
               <li><Link to="/products/upvc">UPVC Windows</Link></li>
+              <li><Link to="/products/upvc/casement">Casement Windows</Link></li>
+              <li><Link to="/products/upvc/colours">Colour Options</Link></li>
               <li><Link to="/products/aluminium">Aluminium Windows</Link></li>
-              <li><Link to="/products/aluminium">Sliding Doors</Link></li>
-              <li><Link to="/products/aluminium">Bi-Fold Doors</Link></li>
             </ul>
           </div>
 
