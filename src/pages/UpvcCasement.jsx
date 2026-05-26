@@ -53,11 +53,11 @@ const UpvcCasement = () => {
         </div>
       </section>
 
-      {/* Overview Section */}
-      <section className="casement-overview">
+      {/* Product Showcase Section */}
+      <section className="casement-overview" style={{ paddingBottom: '40px' }}>
         <div className="container">
           <div className="section-title-center">
-            <h2>CASEMENT UPVC WINDOWS OVERVIEW</h2>
+            <h2>PRODUCT SPECIFICATIONS & FEATURES</h2>
             <div className="diamond-divider dark">
               <div className="line"></div>
               <div className="diamond"></div>
@@ -73,22 +73,20 @@ const UpvcCasement = () => {
               viewport={{ once: true }}
             >
               <img 
-                src="/casement_preview_premium.png" 
-                alt="Casement uPVC Window Premium Profile" 
+                src={casementWindowImg} 
+                alt="Inventa Casement uPVC Window" 
                 style={{ 
-                  maxWidth: '100%', 
+                  maxWidth: '85%', 
                   height: 'auto', 
-                  filter: 'brightness(1.02) contrast(1.02)',
                   borderRadius: '16px',
                   boxShadow: '0 20px 50px rgba(13, 110, 170, 0.15)',
                   cursor: 'pointer'
                 }}
                 onClick={() => setSelectedImage({
-                  img: '/casement_preview_premium.png',
-                  title: 'Casement Profile Premium View',
-                  desc: 'High-end 3D cross-section showing the advanced multi-chamber design and double-glazing assembly.'
+                  img: casementWindowImg,
+                  title: 'Inventa Casement uPVC Window',
+                  desc: 'Premium uPVC window system with double weather gasket seals and multi-point locks.'
                 })}
-                onError={(e) => { e.target.src = casementWindowImg; }}
               />
             </motion.div>
             
@@ -98,12 +96,78 @@ const UpvcCasement = () => {
               whileInView={{ opacity: 1, x: 0 }} 
               viewport={{ once: true }}
             >
-              <h2>Advantages</h2>
+              <h2>Key Features</h2>
               <ul>
-                <li>Applicable for hall and bed rooms facing busy and noisy streets.</li>
-                <li>Significant for thermal and acoustic performance</li>
-                <li>Supports large sized fixed glass enabling better view and light.</li>
-                <li>Stronger system developed by Prominance against wind load.</li>
+                <li>Specially designed multi-point locking system for robust home security.</li>
+                <li>Fusion-welded corners and double weather seals ensure draft-free performance.</li>
+                <li>Multi-chambered profile with thermal insulation reduces AC utility bills by 40%.</li>
+                <li>High-acoustic design provides a soundproof barrier reducing outdoor noise up to 40dB.</li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Profile Section */}
+      <section className="casement-overview" style={{ backgroundColor: '#fafcfd', paddingTop: '60px', paddingBottom: '60px', borderTop: '1px solid #eef5f7', borderBottom: '1px solid #eef5f7' }}>
+        <div className="container">
+          <div className="section-title-center" style={{ marginBottom: '40px' }}>
+            <h2>TECHNICAL PROFILE OVERVIEW</h2>
+            <div className="diamond-divider dark">
+              <div className="line"></div>
+              <div className="diamond"></div>
+              <div className="line"></div>
+            </div>
+          </div>
+
+          <div className="overview-grid-simple">
+            <motion.div 
+              className="overview-image-container"
+              initial={{ opacity: 0, scale: 0.9 }} 
+              whileInView={{ opacity: 1, scale: 1 }} 
+              viewport={{ once: true }}
+            >
+              <img 
+                src="/casement_profile.png" 
+                alt="uPVC Window Profile Cross-Section" 
+                style={{ 
+                  maxWidth: '280px', 
+                  height: 'auto', 
+                  borderRadius: '12px',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
+                  cursor: 'pointer',
+                  border: '1px solid #e3eff5'
+                }}
+                onClick={() => setSelectedImage({
+                  img: '/casement_profile.png',
+                  title: 'uPVC Window Profile Cross-Section',
+                  desc: 'High-end 3D cross-section showing the advanced multi-chamber design and double-glazing assembly.'
+                })}
+              />
+            </motion.div>
+            
+            <motion.div 
+              className="overview-advantages"
+              initial={{ opacity: 0, x: 30 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }}
+            >
+              <h2 style={{ fontSize: '1.6rem', color: '#111', marginBottom: '10px' }}>Application</h2>
+              <ul style={{ listStyleType: 'disc', paddingLeft: '20px', marginBottom: '20px' }}>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Hall, bedrooms, and kitchen spaces facing busy, high-noise streets.</li>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Large size combinations enabling better ventilation, maximum light, and grand panoramic views.</li>
+              </ul>
+
+              <h2 style={{ fontSize: '1.6rem', color: '#111', marginBottom: '10px' }}>Advantages</h2>
+              <ul style={{ listStyleType: 'disc', paddingLeft: '20px', marginBottom: '20px' }}>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Extremely robust frame structure resistant to heavy wind loads and storms.</li>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>High weatherproofing stops rainwater seepages, dust penetration, and draft leakages.</li>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>100% lead-free, UV-resistant compound that retains shape and high-gloss shine for 30+ years.</li>
+              </ul>
+
+              <h2 style={{ fontSize: '1.6rem', color: '#111', marginBottom: '10px' }}>Disadvantages</h2>
+              <ul style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Slightly higher initial investment cost than basic single-glazed aluminum profiles (fully offset by lifetime energy efficiency and zero paint/maintenance costs).</li>
               </ul>
             </motion.div>
           </div>

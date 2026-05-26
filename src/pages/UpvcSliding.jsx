@@ -50,11 +50,11 @@ const UpvcSliding = () => {
         </div>
       </section>
 
-      {/* Overview Section */}
-      <section className="casement-overview">
+      {/* Product Showcase Section */}
+      <section className="casement-overview" style={{ paddingBottom: '40px' }}>
         <div className="container">
           <div className="section-title-center">
-            <h2>SLIDING UPVC WINDOWS OVERVIEW</h2>
+            <h2>PRODUCT SPECIFICATIONS & FEATURES</h2>
             <div className="diamond-divider dark">
               <div className="line"></div>
               <div className="diamond"></div>
@@ -70,22 +70,20 @@ const UpvcSliding = () => {
               viewport={{ once: true }}
             >
               <img 
-                src="/sliding_preview.png" 
-                alt="Sliding uPVC Window Profile" 
+                src={slidingWindow} 
+                alt="Inventa Sliding uPVC Window" 
                 style={{ 
-                  maxWidth: '100%', 
+                  maxWidth: '85%', 
                   height: 'auto', 
-                  filter: 'brightness(1.02) contrast(1.02)',
                   borderRadius: '16px',
                   boxShadow: '0 20px 50px rgba(13, 110, 170, 0.15)',
                   cursor: 'pointer'
                 }}
                 onClick={() => setSelectedImage({
-                  img: '/sliding_preview.png',
-                  title: 'Sliding Profile View',
-                  desc: 'High-end 3D cross-section showing the sliding track and rollers.'
+                  img: slidingWindow,
+                  title: 'Inventa Sliding uPVC Window',
+                  desc: 'Premium modern sliding window system designed for smooth, silent operations.'
                 })}
-                onError={(e) => { e.target.src = 'https://via.placeholder.com/600x400?text=Sliding+Window+Profile'; }}
               />
             </motion.div>
             
@@ -95,14 +93,78 @@ const UpvcSliding = () => {
               whileInView={{ opacity: 1, x: 0 }} 
               viewport={{ once: true }}
             >
-              <h2>Application & Advantages</h2>
+              <h2>Key Features</h2>
               <ul>
-                <li>Designed with maximum space for reinforcement supporting large sized windows/doors.</li>
-                <li>Can be used in hall and bedroom allowing space saving and 66% opening.</li>
-                <li>Aesthetics are judiciously designed to ensure strength and shine over double bevel.</li>
-                <li>Designed with minimum air leakage to prevent dust, noise and thermal leakage.</li>
-                <li>Allows more light and better view with minimum vertical separator.</li>
-                <li>Strength of window is further enhanced with wind resistance booster bars.</li>
+                <li>Precision bottom rollers ensure seamless, silent, and effortless sliding.</li>
+                <li>Space-conscious design that operates parallel to walls without obstructing curtains.</li>
+                <li>Special high-performance interlocking profiles eliminate drafts, dust, and insects.</li>
+                <li>Multi-track sliding frame (2-track, 3-track, or 4-track) for custom width options.</li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Profile Section */}
+      <section className="casement-overview" style={{ backgroundColor: '#fafcfd', paddingTop: '60px', paddingBottom: '60px', borderTop: '1px solid #eef5f7', borderBottom: '1px solid #eef5f7' }}>
+        <div className="container">
+          <div className="section-title-center" style={{ marginBottom: '40px' }}>
+            <h2>TECHNICAL PROFILE OVERVIEW</h2>
+            <div className="diamond-divider dark">
+              <div className="line"></div>
+              <div className="diamond"></div>
+              <div className="line"></div>
+            </div>
+          </div>
+
+          <div className="overview-grid-simple">
+            <motion.div 
+              className="overview-image-container"
+              initial={{ opacity: 0, scale: 0.9 }} 
+              whileInView={{ opacity: 1, scale: 1 }} 
+              viewport={{ once: true }}
+            >
+              <img 
+                src="/casement_profile.png" 
+                alt="uPVC Window Profile Cross-Section" 
+                style={{ 
+                  maxWidth: '280px', 
+                  height: 'auto', 
+                  borderRadius: '12px',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
+                  cursor: 'pointer',
+                  border: '1px solid #e3eff5'
+                }}
+                onClick={() => setSelectedImage({
+                  img: '/casement_profile.png',
+                  title: 'uPVC Window Profile Cross-Section',
+                  desc: 'High-end 3D cross-section showing the advanced multi-chamber design and double-glazing assembly.'
+                })}
+              />
+            </motion.div>
+            
+            <motion.div 
+              className="overview-advantages"
+              initial={{ opacity: 0, x: 30 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }}
+            >
+              <h2 style={{ fontSize: '1.6rem', color: '#111', marginBottom: '10px' }}>Application</h2>
+              <ul style={{ listStyleType: 'disc', paddingLeft: '20px', marginBottom: '20px' }}>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Perfect for balconies, wide patios, and master bedrooms with restricted space.</li>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Excellent for offices and high-traffic spaces where ease of operation is essential.</li>
+              </ul>
+
+              <h2 style={{ fontSize: '1.6rem', color: '#111', marginBottom: '10px' }}>Advantages</h2>
+              <ul style={{ listStyleType: 'disc', paddingLeft: '20px', marginBottom: '20px' }}>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Heavy-gauge galvanized steel reinforcement keeps sashes perfectly aligned over time.</li>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Minimal vertical frame lines provide an uncompromised view and premium modern aesthetic.</li>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Anti-lift blocks and high-security multi-lock hooks prevent forced entry.</li>
+              </ul>
+
+              <h2 style={{ fontSize: '1.6rem', color: '#111', marginBottom: '10px' }}>Disadvantages</h2>
+              <ul style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Provides around 50% to 66% ventilation opening depending on track configurations (compared to 100% full swinging casements).</li>
               </ul>
             </motion.div>
           </div>

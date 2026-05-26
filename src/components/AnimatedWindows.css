@@ -111,12 +111,18 @@
 .window-model:hover .sash-slide-right { transform: translateZ(15px) translateX(60%); z-index: 3; }
 
 /* Tilt & Turn States on Hover */
-/* Animations removed per request */
 .sash-tilt-left {
-  /* static state */
+  transform-origin: bottom center;
 }
+.window-model:hover .sash-tilt-left {
+  transform: rotateX(-15deg) translateZ(10px);
+}
+
 .sash-tilt-right {
-  /* static state */
+  transform-origin: right center;
+}
+.window-model:hover .sash-tilt-right {
+  transform: rotateY(75deg);
 }
 
 /* Fixed pane */

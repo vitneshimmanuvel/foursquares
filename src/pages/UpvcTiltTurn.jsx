@@ -5,6 +5,7 @@ import './UpvcCasement.css';
 import ProductCTA from '../components/ProductCTA';
 
 import upvcWindowBg from '../assets/images/upvc_window.png';
+import windowWhite from '../assets/images/window_color_white.png';
 
 const UpvcTiltTurn = () => {
   useEffect(() => {
@@ -50,11 +51,11 @@ const UpvcTiltTurn = () => {
         </div>
       </section>
 
-      {/* Overview Section */}
-      <section className="casement-overview">
+      {/* Product Showcase Section */}
+      <section className="casement-overview" style={{ paddingBottom: '40px' }}>
         <div className="container">
           <div className="section-title-center">
-            <h2>TILT & TURN UPVC WINDOWS OVERVIEW</h2>
+            <h2>PRODUCT SPECIFICATIONS & FEATURES</h2>
             <div className="diamond-divider dark">
               <div className="line"></div>
               <div className="diamond"></div>
@@ -70,22 +71,20 @@ const UpvcTiltTurn = () => {
               viewport={{ once: true }}
             >
               <img 
-                src="/tilt_turn_preview.png" 
-                alt="Tilt and Turn uPVC Window Profile" 
+                src={windowWhite} 
+                alt="Inventa Tilt & Turn uPVC Window" 
                 style={{ 
-                  maxWidth: '100%', 
+                  maxWidth: '85%', 
                   height: 'auto', 
-                  filter: 'brightness(1.02) contrast(1.02)',
                   borderRadius: '16px',
                   boxShadow: '0 20px 50px rgba(13, 110, 170, 0.15)',
                   cursor: 'pointer'
                 }}
                 onClick={() => setSelectedImage({
-                  img: '/tilt_turn_preview.png',
-                  title: 'Tilt & Turn Profile View',
-                  desc: 'High-end 3D cross-section showing the dual-hinge mechanism.'
+                  img: windowWhite,
+                  title: 'Inventa Tilt & Turn uPVC Window',
+                  desc: 'Premium dual-functioning uPVC window system featuring both top tilting and side opening.'
                 })}
-                onError={(e) => { e.target.src = 'https://via.placeholder.com/600x400?text=Tilt+%26+Turn+Profile'; }}
               />
             </motion.div>
             
@@ -95,12 +94,78 @@ const UpvcTiltTurn = () => {
               whileInView={{ opacity: 1, x: 0 }} 
               viewport={{ once: true }}
             >
-              <h2>Application & Advantages</h2>
+              <h2>Key Features</h2>
               <ul>
-                <li>Dual functionality: tilt for draft-free ventilation, turn for maximum airflow and easy cleaning.</li>
-                <li>Excellent acoustic and thermal insulation due to multi-point locking system.</li>
-                <li>Highly secure and robust design capable of supporting heavy glass units.</li>
-                <li>Perfect for modern architectural styles demanding high performance and aesthetics.</li>
+                <li>Dual-action handle: turn to swing window fully inwards, tilt to vent at the top.</li>
+                <li>Provides highly secure, continuous fresh-air ventilation in "tilt" mode without risk of intrusion.</li>
+                <li>Multi-point locking gear around the entire sash perimeter ensures supreme airtightness.</li>
+                <li>Heavy-duty corner hinges support heavy double/triple acoustic glazing packages.</li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Profile Section */}
+      <section className="casement-overview" style={{ backgroundColor: '#fafcfd', paddingTop: '60px', paddingBottom: '60px', borderTop: '1px solid #eef5f7', borderBottom: '1px solid #eef5f7' }}>
+        <div className="container">
+          <div className="section-title-center" style={{ marginBottom: '40px' }}>
+            <h2>TECHNICAL PROFILE OVERVIEW</h2>
+            <div className="diamond-divider dark">
+              <div className="line"></div>
+              <div className="diamond"></div>
+              <div className="line"></div>
+            </div>
+          </div>
+
+          <div className="overview-grid-simple">
+            <motion.div 
+              className="overview-image-container"
+              initial={{ opacity: 0, scale: 0.9 }} 
+              whileInView={{ opacity: 1, scale: 1 }} 
+              viewport={{ once: true }}
+            >
+              <img 
+                src="/casement_profile.png" 
+                alt="uPVC Window Profile Cross-Section" 
+                style={{ 
+                  maxWidth: '280px', 
+                  height: 'auto', 
+                  borderRadius: '12px',
+                  boxShadow: '0 10px 30px rgba(0,0,0,0.08)',
+                  cursor: 'pointer',
+                  border: '1px solid #e3eff5'
+                }}
+                onClick={() => setSelectedImage({
+                  img: '/casement_profile.png',
+                  title: 'uPVC Window Profile Cross-Section',
+                  desc: 'High-end 3D cross-section showing the advanced multi-chamber design and double-glazing assembly.'
+                })}
+              />
+            </motion.div>
+            
+            <motion.div 
+              className="overview-advantages"
+              initial={{ opacity: 0, x: 30 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }}
+            >
+              <h2 style={{ fontSize: '1.6rem', color: '#111', marginBottom: '10px' }}>Application</h2>
+              <ul style={{ listStyleType: 'disc', paddingLeft: '20px', marginBottom: '20px' }}>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>High-rise luxury residential apartments requiring safe, easy cleaning from the inside.</li>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Commercial and educational buildings demanding superior sound suppression and climate control.</li>
+              </ul>
+
+              <h2 style={{ fontSize: '1.6rem', color: '#111', marginBottom: '10px' }}>Advantages</h2>
+              <ul style={{ listStyleType: 'disc', paddingLeft: '20px', marginBottom: '20px' }}>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Maximum ease of maintenance since the outer glass can be entirely cleaned from within the room.</li>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Unmatched airtightness and rain-tightness among all operable window styles.</li>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Highly secure locking points that exceed international anti-burglary standards.</li>
+              </ul>
+
+              <h2 style={{ fontSize: '1.6rem', color: '#111', marginBottom: '10px' }}>Disadvantages</h2>
+              <ul style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
+                <li style={{ marginBottom: '8px', fontSize: '0.95rem', color: '#444' }}>Slightly more complex mechanical hardware operations requiring clear instructions for first-time users.</li>
               </ul>
             </motion.div>
           </div>
