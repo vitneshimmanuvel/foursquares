@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './InteriorsSubpage.css';
+import ProductCTA from '../components/ProductCTA';
 
 const InteriorsFullHome = () => {
   return (
@@ -162,6 +163,11 @@ const InteriorsFullHome = () => {
 
         </div>
       </section>
+      <ProductCTA 
+        title="Interested in a Full Home Interior Design?" 
+        subtitle="Get a free design consultation and personalized quotation for your entire home" 
+        btnText="Get Free Quote"
+      />
     </main>
   );
 };

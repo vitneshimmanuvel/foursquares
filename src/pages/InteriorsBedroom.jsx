@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './InteriorsSubpage.css';
+import ProductCTA from '../components/ProductCTA';
 
 const InteriorsBedroom = () => {
   return (
@@ -163,6 +164,11 @@ const InteriorsBedroom = () => {
 
         </div>
       </section>
+      <ProductCTA 
+        title="Interested in a Bedroom Redesign?" 
+        subtitle="Get a free consultation and customized quotation to design your perfect cozy bedroom sanctuary" 
+        btnText="Get Free Quote"
+      />
     </main>
   );
 };

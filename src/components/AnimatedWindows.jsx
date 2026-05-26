@@ -33,7 +33,7 @@ const WindowPane = ({ type = 'fixed', hinge = 'left', label }) => {
   );
 };
 
-export const CustomWindow = ({ panes, topPanes = null, bottomPanes = null, width = '80px', height = '140px', name }) => {
+export const CustomWindow = ({ panes, topPanes = null, bottomPanes = null, width = '80px', height = '140px', name, frameMaterial }) => {
   const renderRow = (rowPanes, rowHeight) => (
     <div className="window-row" style={{ display: 'flex', height: rowHeight, width: '100%' }}>
       {rowPanes.map((pane, index) => (
@@ -48,7 +48,7 @@ export const CustomWindow = ({ panes, topPanes = null, bottomPanes = null, width
   return (
     <div className="animated-window-wrapper">
       <div className="window-model" style={{ width, height }}>
-        <div className="window-frame" style={{ width: '100%', height: '100%', flexDirection: 'column' }}>
+        <div className={`window-frame ${frameMaterial === 'aluminium' ? 'frame-material-aluminium' : ''}`} style={{ width: '100%', height: '100%', flexDirection: 'column' }}>
           {topPanes && renderRow(topPanes, '30%')}
           {topPanes && <div className="window-divider-horizontal"></div>}
           
@@ -63,7 +63,7 @@ export const CustomWindow = ({ panes, topPanes = null, bottomPanes = null, width
   );
 };
 
-export const WindowGrid = ({ limit, category = 'casement' }) => {
+export const WindowGrid = ({ limit, category = 'casement', frameMaterial }) => {
   const casementRows = [
     {
       name: 'Standard Designs',
@@ -158,6 +158,7 @@ export const WindowGrid = ({ limit, category = 'casement' }) => {
               panes={item.panes}
               topPanes={item.topPanes}
               bottomPanes={item.bottomPanes}
+              frameMaterial={frameMaterial}
             />
           ))}
         </div>

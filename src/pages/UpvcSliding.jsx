@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { WindowGrid } from '../components/AnimatedWindows';
 import './UpvcCasement.css';
+import ProductCTA from '../components/ProductCTA';
 
 import upvcWindowBg from '../assets/images/upvc_window.png';
 
@@ -261,6 +262,11 @@ const UpvcSliding = () => {
           </motion.div>
         </div>
       )}
+      <ProductCTA 
+        title="Interested in UPVC Sliding Windows?" 
+        subtitle="Schedule a physical site measurement and receive a detailed track-configuration quotation" 
+        btnText="Get Free Quote"
+      />
     </main>
   );
 };

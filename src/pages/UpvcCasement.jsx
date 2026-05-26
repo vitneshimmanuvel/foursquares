@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FaCheck } from 'react-icons/fa';
 import { WindowGrid } from '../components/AnimatedWindows';
 import './UpvcCasement.css';
+import ProductCTA from '../components/ProductCTA';
 
 import upvcWindowBg from '../assets/images/upvc_window.png';
 import casementWindowImg from '../assets/images/window_color_white.png'; // Fallback image for now
@@ -315,6 +316,11 @@ const UpvcCasement = () => {
           </motion.div>
         </div>
       )}
+      <ProductCTA 
+        title="Interested in UPVC Casement Windows?" 
+        subtitle="Request detailed drawings, custom size parameters, and a free commercial quotation" 
+        btnText="Get Free Quote"
+      />
     </main>
   );
 };

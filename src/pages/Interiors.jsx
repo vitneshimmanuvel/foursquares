@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaCheck, FaArrowRight } from 'react-icons/fa';
 import './ProductPage.css';
+import ProductCTA from '../components/ProductCTA';
 
 import interiorLiving from '../assets/images/interior_living.png';
 import kitchenShowcase from '../assets/images/kitchen_showcase.png';
@@ -227,12 +228,13 @@ const Interiors = () => {
               </motion.div>
             ))}
           </div>
-          <div className="cta-box">
-            <h3>Ready to design your dream interior?</h3>
-            <Link to="/contact" className="btn btn-primary">Book Free Consultation <FaArrowRight /></Link>
-          </div>
         </div>
       </section>
+      <ProductCTA 
+        title="Ready to design your dream interior?" 
+        subtitle="Schedule a meeting with our elite designers and get a personalized project estimation" 
+        btnText="Book Free Consultation"
+      />
     </main>
   );
 };

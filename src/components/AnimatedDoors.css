@@ -1,0 +1,195 @@
+.animated-door-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.door-title-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #444;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.door-model {
+  perspective: 1400px; /* Enhanced 3D perspective depth */
+  cursor: pointer;
+}
+
+.door-frame {
+  border: 8px solid #b0b0b0;
+  background: #e2f4fd; /* Sky/garden preview behind opened doors */
+  border-radius: 6px;
+  display: flex;
+  position: relative;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1), inset 0 0 20px rgba(0,0,0,0.08);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Restrain sliding / folding parts appropriately */
+}
+
+.door-model:hover .door-frame {
+  border-color: #909090;
+  box-shadow: 0 20px 45px rgba(13, 110, 170, 0.15), inset 0 0 25px rgba(0,0,0,0.1);
+}
+
+.door-divider-vertical {
+  width: 7px;
+  background: #b0b0b0;
+  height: 100%;
+  z-index: 1;
+}
+
+.door-divider-horizontal {
+  height: 7px;
+  background: #b0b0b0;
+  width: 100%;
+  z-index: 1;
+}
+
+.door-sash {
+  flex: 1;
+  border: 6px solid #d8d8d8;
+  background: rgba(195, 235, 255, 0.45); /* Refined blue double-glazed glass */
+  transition: transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.08), 0 0 5px rgba(0,0,0,0.05);
+  transform-style: preserve-3d;
+  z-index: 2;
+  backdrop-filter: blur(3px);
+}
+
+.door-glass-reflection {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.65) 0%, rgba(255,255,255,0) 60%);
+  pointer-events: none;
+}
+
+/* Luxury Door Handle Styles */
+.door-handle {
+  position: absolute;
+  top: 55%; /* Realistic standard handle height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+  transition: transform 0.3s ease;
+}
+
+.door-handle-right {
+  right: 10px;
+}
+
+.door-handle-left {
+  left: 10px;
+}
+
+.door-handle-hidden {
+  display: none;
+}
+
+.handle-base {
+  width: 6px;
+  height: 25px;
+  background: #2c3e50; /* Brushed graphite base */
+  border-radius: 2px;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+}
+
+.handle-lever {
+  width: 16px;
+  height: 5px;
+  background: #34495e;
+  border-radius: 1px;
+  position: absolute;
+  top: 5px;
+  box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+}
+
+.door-handle-right .handle-lever {
+  right: -8px; /* points outwards */
+}
+
+.door-handle-left .handle-lever {
+  left: -8px; /* points outwards */
+}
+
+/* Transform Origins for Door Swinging */
+.door-sash-hinge-left { transform-origin: left center; }
+.door-sash-hinge-right { transform-origin: right center; }
+
+/* Open States on Hover (Swinging) */
+.door-model:hover .door-sash-hinge-left {
+  transform: rotateY(-80deg);
+  box-shadow: 5px 0 15px rgba(0,0,0,0.15);
+}
+
+.door-model:hover .door-sash-hinge-right {
+  transform: rotateY(80deg);
+  box-shadow: -5px 0 15px rgba(0,0,0,0.15);
+}
+
+/* Sliding States on Hover */
+.door-model:hover .door-sash-slide-left {
+  transform: translateZ(10px) translateX(-85%);
+  z-index: 3;
+}
+
+.door-model:hover .door-sash-slide-right {
+  transform: translateZ(10px) translateX(85%);
+  z-index: 3;
+}
+
+/* Accordion Fold States for Slide & Fold Doors */
+.door-sash-fold-1,
+.door-sash-fold-2,
+.door-sash-fold-3,
+.door-sash-fold-4 {
+  transform-origin: left center;
+  transition: transform 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* On hover, folding sashes compress toward the left side */
+.door-model:hover .door-sash-fold-1 {
+  transform: rotateY(72deg) scaleX(0.25) translateX(0%);
+}
+
+.door-model:hover .door-sash-fold-2 {
+  transform: rotateY(-72deg) scaleX(0.25) translateX(-110%);
+}
+
+.door-model:hover .door-sash-fold-3 {
+  transform: rotateY(72deg) scaleX(0.25) translateX(-220%);
+}
+
+.door-model:hover .door-sash-fold-4 {
+  transform: rotateY(-72deg) scaleX(0.25) translateX(-330%);
+}
+
+/* Fixed panel style */
+.door-fixed {
+  flex: 1;
+  border: 6px solid #d8d8d8;
+  background: rgba(195, 235, 255, 0.3);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+  box-shadow: inset 0 0 12px rgba(0,0,0,0.06);
+}
+
+.fixed-label {
+  font-size: 0.6rem;
+  color: #7f8c8d;
+  letter-spacing: 2px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  user-select: none;
+  opacity: 0.65;
+}

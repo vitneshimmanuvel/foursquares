@@ -227,7 +227,24 @@ const Header = () => {
         { path: '/products/upvc/colours', label: 'Colour Options' },
       ]
     },
-    { path: '/products/aluminium', label: 'Aluminium' },
+    { 
+      path: '/products/upvc-doors', 
+      label: 'UPVC Doors',
+      children: [
+        { path: '/products/upvc-doors/casement', label: 'Casement uPVC Doors' },
+        { path: '/products/upvc-doors/sliding', label: 'Sliding uPVC Doors' },
+        { path: '/products/upvc-doors/slide-fold', label: 'Slide & Fold uPVC Doors' },
+        { path: '/products/upvc-doors/colours', label: 'Colour Options' },
+      ]
+    },
+    { 
+      path: '/products/aluminium', 
+      label: 'Aluminium',
+      children: [
+        { path: '/products/aluminium/sliding', label: 'Sliding Systems' },
+        { path: '/products/aluminium/casement', label: 'Casement Systems' },
+      ]
+    },
   ];
 
   const isProductsActive = location.pathname.startsWith('/products');

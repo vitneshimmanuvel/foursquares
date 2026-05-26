@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaCheck, FaArrowRight, FaWind, FaSun, FaTools, FaShieldAlt, FaCogs, FaDollarSign, FaPaintBrush, FaGlobe, FaAward } from 'react-icons/fa';
 import LayerFinishScroll from '../components/LayerFinishScroll';
 import './ProductPage.css';
+import ProductCTA from '../components/ProductCTA';
 
 import aluminiumWindow from '../assets/images/aluminium_window.png';
 import slidingWindow from '../assets/images/sliding_window.png';
@@ -291,12 +292,13 @@ const Aluminium = () => {
               </motion.div>
             ))}
           </div>
-          <div className="cta-box">
-            <h3>Ready for premium aluminium windows?</h3>
-            <Link to="/contact" className="btn btn-primary">Book Free Consultation <FaArrowRight /></Link>
-          </div>
         </div>
       </section>
+      <ProductCTA 
+        title="Ready for premium aluminium windows?" 
+        subtitle="Request custom profiles, textured brushed finishes, or professional architectural consulting" 
+        btnText="Book Free Consultation"
+      />
     </main>
   );
 };

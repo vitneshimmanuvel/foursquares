@@ -140,3 +140,42 @@
   user-select: none;
   opacity: 0.5;
 }
+
+/* Aluminium Material Theme with Polishing Shine Sweep */
+.window-frame.frame-material-aluminium {
+  border-color: #7f8c8d !important;
+  background: linear-gradient(135deg, 
+    #64748b 0%, 
+    #94a3b8 20%, 
+    #f8fafc 40%, 
+    #f8fafc 45%, 
+    #94a3b8 60%, 
+    #64748b 100%) !important;
+  background-size: 200% 200% !important;
+  background-position: 0% 0% !important;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12), inset 0 0 10px rgba(255,255,255,0.8) !important;
+  transition: background-position 0.65s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.window-model:hover .window-frame.frame-material-aluminium {
+  border-color: #475569 !important;
+  background-position: 100% 100% !important; /* Dynamic metallic gloss reflection sweep on hover! */
+  box-shadow: 0 15px 35px rgba(71, 85, 105, 0.25), inset 0 0 15px rgba(255,255,255,0.9) !important;
+}
+
+.window-frame.frame-material-aluminium .window-divider-vertical,
+.window-frame.frame-material-aluminium .window-divider-horizontal {
+  background: #64748b !important;
+}
+
+.window-frame.frame-material-aluminium .window-sash,
+.window-frame.frame-material-aluminium .window-fixed {
+  border-color: #475569 !important; /* Sleek dark anodized sash casings */
+  background: rgba(195, 235, 255, 0.35) !important; /* Premium light reflection glass */
+  border-image: linear-gradient(135deg, #64748b, #f1f5f9, #64748b) 1 !important; /* Adds polished metallic edge highlights */
+}
+
+.window-frame.frame-material-aluminium .window-handle {
+  background: #0f172a !important; /* Dark metal handle styling */
+  box-shadow: 1px 2px 4px rgba(0,0,0,0.4) !important;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './InteriorsSubpage.css';
+import ProductCTA from '../components/ProductCTA';
 
 const InteriorsKitchen = () => {
   return (
@@ -91,10 +92,7 @@ const InteriorsKitchen = () => {
               <span className="line" style={{width: '60px', backgroundColor: '#0d6eaa'}}></span>
             </div>
             <p>
-              The kitchen work triangle is a principle to create an efficient work flow in the kitchen. 
-              It refers to an imaginary triangle between the three main areas: the sink, the stove, and the refrigerator. 
-              The theory says that by placing these three work areas in close proximity and forming a triangle, 
-              allows for a more efficient flow of work.
+              The kitchen work triangle is a principle to create an efficient work flow in the kitchen. It refers to an imaginary triangle between the three main areas: the sink, the stove, and the refrigerator. The theory says that by placing these three work areas in close proximity and forming a triangle, allows for a more efficient flow of work. While this is a helpful guideline for designing a functional kitchen, it’s just one of the aspects of kitchen design. Other factors to consider include storage, lighting, and overall flow and aesthetics of the space.
             </p>
           </div>
 
@@ -117,13 +115,7 @@ const InteriorsKitchen = () => {
                 <span className="line" style={{width: '40px', backgroundColor: '#0d6eaa'}}></span>
               </div>
               <p>
-                An L-shaped kitchen consisting of two adjacent walls, one longer than the other is most popular 
-                kitchen layout. Ideal for small to medium-sized kitchens, it uses corner space effectively, 
-                creating ample counter space and storage options.
-              </p>
-              <p>
-                It works well in both open-plan and closed-plan homes, providing a clear separation between 
-                cooking and dining areas.
+                An L-shaped kitchen consisting of two adjacent walls, one longer than the other is most popular kitchen layout. Ideal for small to medium-sized kitchens, it uses corner space effectively, creating ample counter space and storage options. It works well in both open-plan and closed-plan homes, providing a clear separation between cooking and dining areas. With its efficient use of space, open flow, and functionality, it’s no wonder why it’s a popular choice among homeowners.
               </p>
             </div>
           </motion.div>
@@ -146,12 +138,7 @@ const InteriorsKitchen = () => {
                 <span className="line" style={{width: '40px', backgroundColor: '#0d6eaa'}}></span>
               </div>
               <p>
-                A U-shaped kitchen maximizes the use of walls by providing ample storage and counter space. 
-                The three walls of the U-shaped kitchen can be used to house appliances, cabinets, and countertops.
-              </p>
-              <p>
-                It ensures easy access to all areas of the kitchen. This layout is perfect for homeowners who 
-                want a functional and stylish kitchen that maximizes the use of space.
+                A U-shaped kitchen is a popular kitchen layout too that maximizes the use of walls by providing ample storage and counter space. The three walls of the U-shaped kitchen can be used to house appliances, cabinets, and countertops. It ensures easy access to all areas of the kitchen. This layout is perfect for homeowners who want a functional and stylish kitchen that maximizes the use of space.
               </p>
             </div>
           </motion.div>
@@ -174,13 +161,7 @@ const InteriorsKitchen = () => {
                 <span className="line" style={{width: '40px', backgroundColor: '#0d6eaa'}}></span>
               </div>
               <p>
-                A galley kitchen featuring two opposing walls facing each other is the perfect option for a narrow 
-                corridor space. Although the floor space is narrow and resembles a walkway, the storage space ratio 
-                is much higher.
-              </p>
-              <p>
-                When designed well, a galley kitchen is able to perfectly execute the kitchen work triangle. 
-                Its sleek and elongated nature makes it a practical choice.
+                A galley kitchen featuring two opposing walls facing each other is the perfect option for a narrow corridor space. Although the floor space is narrow and resembles a walkway, the storage space ratio is much higher. When designed well, a galley kitchen is able to perfectly execute the kitchen work triangle. Its sleek and elongated nature makes it a practical choice for homeowners.
               </p>
             </div>
           </motion.div>
@@ -203,11 +184,7 @@ const InteriorsKitchen = () => {
                 <span className="line" style={{width: '40px', backgroundColor: '#0d6eaa'}}></span>
               </div>
               <p>
-                A One wall kitchen is commonly found in studio apartments or small homes, where space is limited. 
-                Efficient in terms of space utilization, it provides easy access to all the kitchen appliances and saves a lot of space.
-              </p>
-              <p>
-                It’s also easy to clean and maintain. It’s a practical and efficient choice for those with limited space.
+                A One wall kitchen is commonly found in studio apartments or small homes, where space is limited. Efficient in terms of space utilization, it provides easy access to all the kitchen appliances and saves a lot of space. It’s also easy to clean and maintain. However, due to the limited space, it can be challenging to incorporate all the necessary things and difficult to create an efficient work triangle. But it’s a practical and efficient choice for those with limited space.
               </p>
             </div>
           </motion.div>
@@ -230,12 +207,7 @@ const InteriorsKitchen = () => {
                 <span className="line" style={{width: '40px', backgroundColor: '#0d6eaa'}}></span>
               </div>
               <p>
-                A peninsular kitchen features a connected island that extends from one of the main walls and is 
-                attached to the main cabinets, creating a “peninsula” that separates the kitchen from living areas.
-              </p>
-              <p>
-                It provides additional storage, while also serving as a natural room divider, perfect for 
-                open-concept homes. It can be used as a breakfast bar or informal dining area.
+                A peninsular kitchen features a connected island that extends from one of the main walls and is attached to the main cabinets, creating a “peninsula” that separates the kitchen from living areas. It provides additional storage, while also serving as a natural room divider, perfect for open-concept homes. It can be used as a breakfast bar or informal dining area. This layout helps to optimize the kitchen work triangle by creating a more efficient flow.
               </p>
             </div>
           </motion.div>
@@ -258,19 +230,18 @@ const InteriorsKitchen = () => {
                 <span className="line" style={{width: '40px', backgroundColor: '#0d6eaa'}}></span>
               </div>
               <p>
-                An island kitchen features a freestanding island in the center of the room. The island can serve a 
-                variety of purposes, such as additional storage, countertop space, seating, or even as a secondary 
-                sink or cooking area.
-              </p>
-              <p>
-                In addition, an island kitchen can also function as a social hub for the home. It’s a popular choice 
-                for those who want to maximize their kitchen space while creating a stylish design.
+                An island kitchen features a freestanding island in the center of the room. The island can serve a variety of purposes, such as additional storage, countertop space, seating, or even as a secondary sink or cooking area. In addition, an island kitchen can also function as a social hub for the home. It’s a popular choice for those who want to maximize their kitchen space while creating a stylish design.
               </p>
             </div>
           </motion.div>
 
         </div>
       </section>
+      <ProductCTA 
+        title="Interested in a Modular Kitchen Design?" 
+        subtitle="Get a free design consultation, layout walkthrough, and customized quotation for your kitchen" 
+        btnText="Get Free Quote"
+      />
     </main>
   );
 };

@@ -21,6 +21,14 @@ import UpvcCasement from './pages/UpvcCasement';
 import UpvcSliding from './pages/UpvcSliding';
 import UpvcTiltTurn from './pages/UpvcTiltTurn';
 
+import UpvcDoors from './pages/UpvcDoors';
+import UpvcDoorsCasement from './pages/UpvcDoorsCasement';
+import UpvcDoorsSliding from './pages/UpvcDoorsSliding';
+import UpvcDoorsSlideFold from './pages/UpvcDoorsSlideFold';
+
+import AluminiumSliding from './pages/AluminiumSliding';
+import AluminiumCasement from './pages/AluminiumCasement';
+
 function App() {
   return (
     <Router>
@@ -35,12 +43,22 @@ function App() {
           <Route path="/products/interiors/kitchen" element={<InteriorsKitchen />} />
           <Route path="/products/interiors/living-room" element={<InteriorsLivingRoom />} />
           <Route path="/products/interiors/bedroom" element={<InteriorsBedroom />} />
+          
           <Route path="/products/upvc" element={<Upvc />} />
           <Route path="/products/upvc/casement" element={<UpvcCasement />} />
           <Route path="/products/upvc/sliding" element={<UpvcSliding />} />
           <Route path="/products/upvc/tilt-turn" element={<UpvcTiltTurn />} />
           <Route path="/products/upvc/colours" element={<UpvcColours />} />
+
+          <Route path="/products/upvc-doors" element={<UpvcDoors />} />
+          <Route path="/products/upvc-doors/casement" element={<UpvcDoorsCasement />} />
+          <Route path="/products/upvc-doors/sliding" element={<UpvcDoorsSliding />} />
+          <Route path="/products/upvc-doors/slide-fold" element={<UpvcDoorsSlideFold />} />
+          <Route path="/products/upvc-doors/colours" element={<UpvcColours />} />
+
           <Route path="/products/aluminium" element={<Aluminium />} />
+          <Route path="/products/aluminium/sliding" element={<AluminiumSliding />} />
+          <Route path="/products/aluminium/casement" element={<AluminiumCasement />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<AboutUs />} />

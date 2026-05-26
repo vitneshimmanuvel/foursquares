@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './InteriorsSubpage.css';
+import ProductCTA from '../components/ProductCTA';
 
 const InteriorsLivingRoom = () => {
   return (
@@ -131,6 +132,11 @@ const InteriorsLivingRoom = () => {
 
         </div>
       </section>
+      <ProductCTA 
+        title="Interested in a Living Room Transformation?" 
+        subtitle="Get a free consultation and personalized quotation to make your living room spectacular" 
+        btnText="Get Free Quote"
+      />
     </main>
   );
 };

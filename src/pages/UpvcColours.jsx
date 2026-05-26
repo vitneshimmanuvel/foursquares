@@ -1,5 +1,6 @@
 import React from 'react';
 import './UpvcColours.css';
+import ProductCTA from '../components/ProductCTA';
 import windowWood from '../assets/images/window_color_wood.png';
 import woodRusticCharm from '../assets/images/wood_rustic_charm.png';
 import woodMysticDark from '../assets/images/wood_mystic_dark.png';
@@ -161,6 +162,11 @@ const UpvcColours = () => {
           </div>
         </div>
       </section>
+      <ProductCTA 
+        title="Want custom laminated colors?" 
+        subtitle="Request our premium tactile color swatch booklet or custom architectural consult for color schemes" 
+        btnText="Get Free Quote"
+      />
     </main>
   );
 };

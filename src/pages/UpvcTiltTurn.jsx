@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { WindowGrid } from '../components/AnimatedWindows';
 import './UpvcCasement.css';
+import ProductCTA from '../components/ProductCTA';
 
 import upvcWindowBg from '../assets/images/upvc_window.png';
 
@@ -259,6 +260,11 @@ const UpvcTiltTurn = () => {
           </motion.div>
         </div>
       )}
+      <ProductCTA 
+        title="Interested in UPVC Tilt & Turn Windows?" 
+        subtitle="Consult with our design experts for high-rise safety configurations and wind pressure ratings" 
+        btnText="Get Free Quote"
+      />
     </main>
   );
 };
